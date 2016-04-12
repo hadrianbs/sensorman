@@ -12,6 +12,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
+        
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('/assets/global/plugins/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css" />
@@ -20,16 +21,15 @@
         <link href="<?php echo base_url('/assets/global/plugins/uniform/css/uniform.default.css') ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="<?php echo base_url('/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url('/assets/global/plugins/morris/morris.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url('/assets/global/plugins/fullcalendar/fullcalendar.min.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url('/assets/global/plugins/jqvmap/jqvmap/jqvmap.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
+
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo base_url('/assets/global/css/components-md.min.css') ?>" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo base_url('/assets/global/css/plugins-md.min.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
+
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="<?php echo base_url('/assets/layouts/layout4/css/layout.min.css') ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('/assets/layouts/layout4/css/themes/light.min.css') ?>" rel="stylesheet" type="text/css" id="style_color" />
