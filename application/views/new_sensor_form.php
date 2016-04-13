@@ -40,6 +40,15 @@
                                                 <textarea class="form-control" rows="3" name="description"></textarea>
                                                 <label for="form_control_1">Data point description</label>
                                             </div> 
+                                            <div class="md-checkbox-inline">
+                                                <div class="md-checkbox">
+                                                    <input type="checkbox" id="checkbox6" class="md-check" value="gps" name="gps">
+                                                    <label for="checkbox6">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span> This is a GPS </label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-actions noborder">
                                             <button type="submit" class="btn blue">Submit</button>

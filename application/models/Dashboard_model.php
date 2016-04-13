@@ -5,4 +5,21 @@ class Dashboard_model extends CI_Model{
 	{
 		$this->db->insert('sensor', $newSensorData);
 	}
+
+	public function getSensorData($sensorid)
+	{
+		$this->db->select('sensor.sensor_name as SENSORNAME, sensor.sensor_description as SENSORDESC, sensor_data.timestamp as TIMESTAMP, sensor_data.sensor_reading as DATAREADING');
+		$this->db->from('sensor');
+		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id');
+		$this->db->where('sensor.id', $sensorid);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getSensorList()
+	{
+		$this->db->from('sensor');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

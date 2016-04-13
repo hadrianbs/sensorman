@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['new_sensor'] = 'home/create_sensor/form';
 $route['create_sensor'] = 'home/create_sensor/submit';
+$route['viewsensor/(:any)'] = 'home/viewsensor/$1';
