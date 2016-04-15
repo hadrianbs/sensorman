@@ -28,4 +28,4 @@ def sendSensorData():
 while(True):
 
 	sendSensorData()
-	time.sleep(3)	
+	time.sleep(1)	

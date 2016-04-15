@@ -47,20 +47,19 @@
                                     <div class="row">
                                     <?php foreach ($sensorlist as $row) { ?>
                                         <div class="col-md-3 ">
-                                            <!-- BEGIN Portlet PORTLET-->
-                                            <div class="portlet box yellow">
+                                            <div class="portlet light bordered">
                                                 <div class="portlet-title">
-                                                    <div class="caption">
-                                                        <a href="<?php echo base_url('viewsensor/').'/'.$row->id; ?>"><?php echo $row->sensor_name ?> </a>
+                                                    <div class="caption font-green-sharp">
+                                                        <span class=""> <?php echo $row->sensor_name ?> </span>
                                                     </div>
                                                 </div>
-                                                <div class="portlet-body"> 
-                                                    <p>
-                                                        <?php echo $row->sensor_description ?>
-                                                    </p>
+                                                <div class="portlet-body">
+                                                    <div class="scroller" style="height:100px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                                                        <h4>Heading Text</h4>
+                                                        <a href="<?php echo base_url('home/viewsensor')."/".$row->id ?>"><button type="button" class="btn blue">Blue</button></a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <!-- END Portlet PORTLET-->
                                         </div>
                                     <?php } ?>
                                     </div>
@@ -75,12 +74,9 @@
                             <div class="portlet box red-sunglo">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class=""></i>Individual Sensors </div>
+                                        <i class=""></i>Sensor Group / Folder </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <p>
-                                        <strong>Sensors not attached to any group</strong>
-                                    </p>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <!-- BEGIN Portlet PORTLET-->
@@ -118,7 +114,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="portlet-body">
-                                                    <div class="scroller" style="height:200px">
+                                                    <div class="scroller" style="height:100">
                                                         <p> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. est non commodo luctus, nisi erat porttitor ligula,
                                                             eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
                                                             consectetur purus sit amet fermentum. est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </p>
