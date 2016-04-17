@@ -43,11 +43,11 @@ class Test extends CI_Controller {
 		{
 			$datetime = strtotime($row->timestamp)*1000;
 			$datareading = (float)$row->datareading;
-			$data[] = "[$datetime, $datareading]";
+			$data[] = [$datetime, $datareading];
 		}
 		
 		$this->output
 	        ->set_content_type('application/json')
-	        ->set_output(json_encode(join($data, ',')));
+	        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 	}
 }

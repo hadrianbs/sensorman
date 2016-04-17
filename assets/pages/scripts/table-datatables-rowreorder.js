@@ -38,7 +38,7 @@ var TableDatatablesRowreorder = function () {
             },
 
             "order": [
-                [0, 'asc']
+                [0, 'desc']
             ],
             
             "lengthMenu": [
@@ -46,7 +46,7 @@ var TableDatatablesRowreorder = function () {
                 [5, 10, 15, 20, "All"] // change per page values here
             ],
             // set the initial value
-            "pageLength": 10,
+            "pageLength": 5,
 
             "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
 

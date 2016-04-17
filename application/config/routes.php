@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['new_sensor'] = 'home/create_sensor/form';
 $route['create_sensor'] = 'home/create_sensor/submit';
 $route['viewsensor/(:any)'] = 'home/viewsensor/$1';
+$route['getRealtimeData/(:any)'] = 'data_controller/getRealTimeSensorData/$1';
+$route['getDataWithParam/(:any)'] = 'data_controller/getDataWithParam/$1';
+$route['analyze/(:any)'] = 'home/analyzeSensor/$1';

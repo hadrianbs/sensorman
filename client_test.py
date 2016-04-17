@@ -10,7 +10,7 @@ def sendSensorData():
 
 
 	sensor_key = '11059b0216dbfa53bc990bf9cc721e7913bdeb37'
-	sensor_reading = random.uniform(1, 10)
+	sensor_reading = random.uniform(20, 37)
 
 
 	data = 	{

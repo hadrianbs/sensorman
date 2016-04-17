@@ -13,10 +13,9 @@
         <meta content="" name="description" />
         <meta content="" name="author" />
 
-        <script type="text/javascript" src="<?php echo base_url('/assets/highcharts/api/js/jquery-1.11.3.min.js') ?>"></script>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-        <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
-        
+        <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>        
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('/assets/global/plugins/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css" />

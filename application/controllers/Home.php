@@ -7,6 +7,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Dashboard_model');
+		$this->load->model('Data_model');
 	}
 
 	function checkLogin()
@@ -81,12 +82,22 @@ class Home extends CI_Controller {
 		{
 			#Get sensor data
 			$data['userdata'] = $this->getUserData();
-			$data['sensordata'] = $this->Dashboard_model->getSensorData($sensorid);
+			$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
 			$this->load->view('header');
 			$this->load->view('menu',$data);
 			$this->load->view('view_sensor',$data);
 			$this->load->view('footer');
 		}
+	}
+
+	public function analyzeSensor($sensorid = NULL)
+	{
+		$data['userdata'] = $this->getUserData();
+		$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
+		$this->load->view('header');
+		$this->load->view('menu',$data);
+		$this->load->view('analyze',$data);
+		$this->load->view('footer');
 	}
 
 }

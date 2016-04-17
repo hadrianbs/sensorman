@@ -6,7 +6,9 @@
                     <img class="login-logo login-6" src="" />
                     <div class="login-content">
                         <h1>SensorMan Login</h1>
-                        <p> Login to manage your sensors! </p>
+                        <p> Login to manage your sensors! 
+                            by @hadrianbsrg 
+                        </p>
                         <form action="<?php echo base_url('authentication/login') ?>" class="login-form" method="post">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>

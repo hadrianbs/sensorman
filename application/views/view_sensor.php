@@ -1,7 +1,7 @@
 <script type="text/javascript">
         function requestData() {
         $.ajax({
-            url: '<?php echo base_url('test/ajax_random')."/".$sensordata[0]->SENSORID?>',
+            url: '<?php echo base_url('getRealtimeData')."/".$sensordata[0]->SENSORID?>',
             success: function(point) {
                 var series = chart.series[0],
                     shift = series.data.length > 20; 
@@ -43,7 +43,71 @@
         }]
     });        
 });
-    </script>
+</script>
+
+<script type="text/javascript">
+$(function () {
+    $.getJSON('<?php echo base_url('getDataWithParam')."/".$sensordata[0]->SENSORID ?>', function (data) {
+        var chart = new Highcharts.Chart({
+            chart: {
+                zoomType: 'x',
+                renderTo: 'datacharts'
+            },
+            title: {
+                text: 'Sensor value'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+
+            series: [{
+                type: 'area',
+                name: 'Sensor value',
+                data: data
+            }]
+        });
+    });
+});
+</script>
+
+
+
+
+
 <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
@@ -90,8 +154,25 @@
                             </div>
                             <!-- END Portlet PORTLET-->
                         </div>
-                        <div class="col-md-6 ">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
                             <!-- BEGIN Portlet PORTLET-->
+                            <div class="portlet box blue">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-gift"></i>Graphs / Charts 
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content" id="realtimechart">                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <!-- BEGIN Portlet PORTLET-->
                             <div class="portlet box blue">
                                 <div class="portlet-title">
@@ -121,44 +202,6 @@
                                 </div>
                             </div>
                             <!-- BEGIN Portlet PORTLET-->
-                            <!-- END Portlet PORTLET-->
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <!-- BEGIN Portlet PORTLET-->
-                            <div class="portlet box blue">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-gift"></i>Graphs / Charts 
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="tab-content" id="realtimechart">                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <!-- BEGIN Portlet PORTLET-->
-                            <div class="portlet box blue">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-gift"></i>Rules / Alerts
-                                    </div>
-                                </div>
-                                <div class="portlet-body">
-                                    <div class="tab-content">
-                                        Table for creating rules / alerts for sensor
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 ">
                         </div>
                     </div>
                     <!-- END PAGE BASE CONTENT -->
