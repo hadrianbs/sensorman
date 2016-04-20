@@ -131,7 +131,6 @@ $(function () {
                         </li>
                         <li>
                             <span class="active"><?php echo $sensordata[0]->SENSORNAME ?></span>
-                            <i class="fa fa-circle"></i>
                         </li>
                     </ul>
                     <!-- END PAGE BREADCRUMB -->
@@ -183,7 +182,7 @@ $(function () {
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <span class="caption-subject font-blue-soft bold uppercase">Real Time Data</span>
+                                        <i class="icon-graph"></i><span class="caption-subject font-blue-soft bold uppercase">Real Time Data</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body">

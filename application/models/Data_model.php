@@ -17,7 +17,7 @@ class Data_model extends CI_Model{
 		$this->db->select('sensor_data.sensor_reading as datareading, sensor_data.timestamp as timestamp');
 		$this->db->from('sensor_data');
 		$this->db->where('sensor_data.sensor_id', $sensorId);
-		$this->db->order_by('sensor_data.timestamp', 'DESC');
+		$this->db->order_by('sensor_data.timestamp', 'ASC');
 		$query = $this->db->get();
 		return $query->result();
 	}

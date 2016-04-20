@@ -242,9 +242,7 @@ $(function () {
             <div class="page-head">
                 <!-- BEGIN PAGE TITLE -->
                 <div class="page-title">
-                    <h1>View Sensor
-                        <small><?php echo $sensordata[0]->SENSORNAME ?></small>
-                    </h1>
+                    <h1>Analyze</h1>
                 </div>
                 <!-- END PAGE TITLE -->
             </div>
@@ -256,7 +254,7 @@ $(function () {
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('analyze')."/".$sensordata[0]->SENSORID ?>"> <?php echo $sensordata[0]->SENSORNAME ?> </a>
+                    <a href="<?php echo base_url('viewsensor')."/".$sensordata[0]->SENSORID ?>"> <?php echo $sensordata[0]->SENSORNAME ?> </a>
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
@@ -300,7 +298,7 @@ $(function () {
                                     <div class="portlet light bordered">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                <i class="fa fa-gift"></i> Data Reading
+                                                <i class="icon-graph"></i></i> Data Reading
                                             </div>
                                         </div>
                                         <div class="portlet-body">
@@ -336,7 +334,7 @@ $(function () {
                                     <div class="portlet light bordered">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                Data Reading
+                                                <i class="icon-graph"></i>Data Reading
                                             </div>
                                         </div>
                                         <div class="portlet-body">
@@ -371,7 +369,7 @@ $(function () {
                                     <div class="portlet light bordered">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                Data Reading
+                                                <i class="icon-graph"></i>Data Reading
                                             </div>
                                         </div>
                                         <div class="portlet-body">
@@ -405,7 +403,7 @@ $(function () {
                                     <div class="portlet light bordered">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                Data Reading
+                                                <i class="icon-graph"></i>Data Reading
                                             </div>
                                         </div>
                                         <div class="portlet-body">
