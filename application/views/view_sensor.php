@@ -126,11 +126,12 @@ $(function () {
                     <!-- BEGIN PAGE BREADCRUMB -->
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="<?php echo base_url() ?>">Home</a>
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
                             <span class="active"><?php echo $sensordata[0]->SENSORNAME ?></span>
+                            <i class="fa fa-circle"></i>
                         </li>
                     </ul>
                     <!-- END PAGE BREADCRUMB -->
@@ -138,10 +139,11 @@ $(function () {
                     <div class="row">
                         <div class="col-md-6 ">
                             <!-- BEGIN Portlet PORTLET-->
-                            <div class="portlet box blue">
+                            <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-gift"></i>Sensor Information </div>
+                                        <span class="caption-subject font-blue-soft bold uppercase">Sensor Info</span>
+                                    </div>
                                 </div>
                                 <div class="portlet-body">
                                     <div class="scroller" style="height:200px">
@@ -154,14 +156,34 @@ $(function () {
                             </div>
                             <!-- END Portlet PORTLET-->
                         </div>
+                        <div class="col-md-6 ">
+                            <!-- BEGIN Portlet PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-blue-soft bold uppercase">Analyze</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="scroller" style="height:200px">
+                                        <pr>
+                                            <a href="<?php echo base_url('analyze')."/".$sensordata[0]->SENSORID ?>">Analyze</a>
+                                            <br>
+                                            <a>Create Alert</a>  
+                                        </pr>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END Portlet PORTLET-->
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 ">
                             <!-- BEGIN Portlet PORTLET-->
-                            <div class="portlet box blue">
+                            <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-gift"></i>Graphs / Charts 
+                                        <span class="caption-subject font-blue-soft bold uppercase">Real Time Data</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -174,15 +196,15 @@ $(function () {
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BEGIN Portlet PORTLET-->
-                            <div class="portlet box blue">
+                            <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
-                                        <i class="fa fa-gift"></i> Data Reading
+                                        <span class="caption-subject font-blue-soft bold uppercase">Data</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
                                     <div class="tab-content">
-                                        <table class="table table-striped table-bordered table-hover" id="sample_1">
+                                        <table class="table table-striped table-bordered table-hover" id="alldata_datatable">
                                             <thead>
                                                 <tr>
                                                     <th> Timestamp </th>

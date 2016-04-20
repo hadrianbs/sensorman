@@ -94,6 +94,9 @@ class Home extends CI_Controller {
 	{
 		$data['userdata'] = $this->getUserData();
 		$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
+		$data['maxsensordata'] = $this->Data_model->getMaxSensorReading($sensorid);
+		$data['minsensordata'] = $this->Data_model->getMinSensorReading($sensorid);
+		$data['averagesensordata'] = $this->Data_model->getAverageSensorReading($sensorid);
 		$this->load->view('header');
 		$this->load->view('menu',$data);
 		$this->load->view('analyze',$data);

@@ -32,7 +32,7 @@ class Data_controller extends CI_Controller {
 	        ->set_output(json_encode($ret));
 	}
 
-	public function getDataWithParam($sensor_id)
+	public function getAllSensorData($sensor_id)
 	{
 		$this->load->model('Data_model');
 		$querydata = $this->Data_model->getSensorReading($sensor_id);
@@ -46,6 +46,48 @@ class Data_controller extends CI_Controller {
 		$this->output
 	        ->set_content_type('application/json')
 	        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
+	}
+
+	public function getMaxSensorReading($sensor_id)
+	{
+		$this->load->model('Data_model');
+		$querydata = $this->Data_model->getMaxSensorReading($sensor_id);
+		foreach($querydata as $row)
+		{
+			$datetime = strtotime($row->sensordate)*1000;
+			$datareading = (float)$row->sensordata;
+			$data[] = [$datetime, $datareading];
+		}
+		
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+
+	public function getMinSensorReading($sensor_id)
+	{
+		$this->load->model('Data_model');
+		$querydata = $this->Data_model->getMinSensorReading($sensor_id);
+		foreach($querydata as $row)
+		{
+			$datetime = strtotime($row->sensordate)*1000;
+			$datareading = (float)$row->sensordata;
+			$data[] = [$datetime, $datareading];
+		}
+		
+		echo json_encode($data, JSON_NUMERIC_CHECK);
+	}
+
+	public function getAverageSensorReading($sensor_id)
+	{
+		$this->load->model('Data_model');
+		$querydata = $this->Data_model->getAverageSensorReading($sensor_id);
+		foreach($querydata as $row)
+		{
+			$datetime = strtotime($row->sensordate)*1000;
+			$datareading = (float)$row->sensordata;
+			$data[] = [$datetime, $datareading];
+		}
+		
+		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 
 }

@@ -22,6 +22,7 @@
         <script src="<?php echo base_url('/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') ?>" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<?php echo base_url('/assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js')?>" type="text/javascript"></script>
         <script src="<?php echo base_url('/assets/global/plugins/jquery-ui/jquery-ui.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('/assets/global/scripts/datatable.js') ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('/assets/global/plugins/datatables/datatables.min.js') ?>" type="text/javascript"></script>
@@ -31,9 +32,8 @@
         <script src="<?php echo base_url('/assets/global/scripts/app.min.js') ?>" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="<?php echo base_url('/assets/pages/scripts/table-datatables-rowreorder.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('/assets/pages/scripts/table-datatables-rowreorder.js') ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('/assets/pages/scripts/ui-modals.min.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('/assets/pages/scripts/dashboard.min.js') ?>" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="<?php echo base_url('/assets/layouts/layout4/scripts/layout.min.js') ?>" type="text/javascript"></script>
