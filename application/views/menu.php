@@ -26,8 +26,8 @@
                                 <i class="icon-docs"></i> Data Point / Sensor </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
-                                <i class="icon-share"></i>  Folder </a>
+                            <a href="<?php echo base_url('new_collab')?>">
+                                <i class="icon-share"></i>  Collaborative Sensor </a>
                         </li>
                     </ul>
                 </div>

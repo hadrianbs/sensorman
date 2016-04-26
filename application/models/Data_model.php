@@ -22,6 +22,18 @@ class Data_model extends CI_Model{
 		return $query->result();
 	}
 
+	#Get Last Record of Data
+	public function getLastRecord($sensorId)
+	{
+		$this->db->select('sensor_data.sensor_reading as datareading, sensor_data.timestamp as timestamp');
+		$this->db->from('sensor_data');
+		$this->db->where('sensor_data.sensor_id', $sensorId);
+		$this->db->order_by('sensor_data.id', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	#for getting each day MAX data from all sensor data.
 	public function getMaxSensorReading($sensorid)
 	{

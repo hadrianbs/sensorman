@@ -50,4 +50,25 @@ class Test extends CI_Controller {
 	        ->set_content_type('application/json')
 	        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 	}
+
+	public function cli_test()
+	{
+		while(1)
+		{
+			$this->load->model('Data_model');
+			$datax = $this->Data_model->getSensorReading(1);
+			$datay = $this->Data_model->getSensorReading(1);
+			foreach($datax as $row)
+			{
+				$retx = array(strtotime($row->timestamp)*1000, (float)$row->datareading);
+			}
+			foreach($datay as $row)
+			{
+				$rety = array(strtotime($row->timestamp)*1000, (float)$row->datareading);
+			}
+			echo $retx;
+			echo $rety;
+
+		}
+	}
 }

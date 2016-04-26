@@ -9,6 +9,7 @@ class Api extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Api_model');
+		$this->load->model('Data_model');
 	}
 
 	private function return_message($message)
@@ -44,16 +45,57 @@ class Api extends CI_Controller {
 		#Check 'sensor' database for sensor with equivalent 'sensor_key' . If Available, return the id of the sensor
 		if($sensor_id = $this->Api_model->checkSensorKey($sensor_key))
 		{
-			#Prepare data
-
+			#prepare data
 			$sensorReadingData = array(
-				'sensor_id' => $sensor_id[0]->SENSORID,
-				'sensor_reading' => $sensor_reading
-				);
-			#Insert sensor data reading to 'sensor_data' table
-			$this->Api_model->insertSensorReadingData($sensorReadingData);
+					'sensor_id' => $sensor_id[0]->SENSORID,
+					'sensor_reading' => $sensor_reading
+					);
+			if($collab_data = $this->Api_model->checkCollab($sensor_id[0]->SENSORID))
+			{
+				#Check Collab COMPARATIVE OPERATOR (AND / OR)
+				if($collab_data[0]->comp_operator == 'OR')
+				{
+					if($collab_data[0]->sensor_x_id == $sensor_id[0]->SENSORID)
+					{
+						#Get the Y last record of Y value
+						$sensor_y_value = $this->Data_model->getLastRecord($collab_data[0]->sensor_y_id);
 
-			$this->return_message('Successfully retrieved sensor_reading data');
+						switch ($collab_data[0]->operator) {
+							case '*':
+								$result = $sensor_reading * $sensor_y_value[0]->datareading;
+								break;
+							case '+':
+								$result = $sensor_reading + $sensor_y_value[0]->datareading;
+								break;
+							case '-':
+								$result 
+							
+						}
+
+						#Prepare the Data
+						$newCollabData = array(
+						'sensor_x_value' => $sensor_reading,
+						'sensor_y_value' => $sensor_y_value[0]->datareading,
+						'sensor_collab_id' => $collab_data[0]->sensor_collab_id,
+						'sensor_reading' => $result
+						);
+					}
+					elseif($collab_data[0]->sensor_y_id == $sensor_id[-]->SENSORID)
+					{
+						#GET X
+					}					
+
+					#Insert sensor data reading to 'sensor_data' table
+					#$this->Api_model->insertSensorReadingData($sensorReadingData);
+				}
+
+				#Insert sensor data reading to 'sensor_data' table
+				#$this->Api_model->insertSensorReadingData($sensorReadingData);
+
+				#Insert senso data reading to 'sensor_collab_data' table
+				print_r($sensorReadingData);
+				#$this->return_message('Successfully retrieved sensor_reading data');
+			}
 		}
 		else
 		{

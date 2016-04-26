@@ -17,9 +17,32 @@ class Api_model extends CI_Model{
 		}
 	}
 
+	public function checkCollab($sensor_id)
+	{
+		$this->db->from('sensor_collab');
+		$this->db->where('sensor_x_id', $sensor_id);
+		$this->db->or_where('sensor_y_id', $sensor_id);
+		if($query = $this->db->get())
+		{
+			return $query->result();
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
 	public function insertSensorReadingData($sensorReadingData)
 	{
 		$this->db->insert('sensor_data', $sensorReadingData);
+	}
+
+	public function getSensorAlertData($sensorId)
+	{
+		$this->db->from('sensor_rule');
+		$this->db->where('sensor_rule.sensor_id', $sensorId);
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 }

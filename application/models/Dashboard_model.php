@@ -12,4 +12,14 @@ class Dashboard_model extends CI_Model{
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function createNewCollab($newSensorData)
+	{
+		$this->db->insert('sensor_collab', $newSensorData);
+	}
+
+	public function insertNewAlert($newAlertData)
+	{
+		$this->db->insert('sensor_rule', $newAlertData);
+	}
 }

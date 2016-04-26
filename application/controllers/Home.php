@@ -76,6 +76,47 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function create_collab($param = NULL)
+	{
+		$data['userdata'] = $this->getUserData();
+
+		if(isset($param))
+		{
+			if($param == 'form')
+			{
+				$data['sensor_list'] = $this->Dashboard_model->getSensorList();
+				$this->load->view('header');
+				$this->load->view('menu', $data);
+				$this->load->view('new_collab_form');
+				$this->load->view('footer');
+			}
+		}
+		else
+		{
+			$user_id = $this->getUserData()->id;
+			$sensor_collab_name = $this->input->post('name');
+			$sensor_collab_desc = $this->input->post('description');
+			$sensor_x_id = $this->input->post('sensor_x');
+			$sensor_y_id = $this->input->post('sensor_y');
+			$operator = $this->input->post('operator');
+
+			$newSensorData = array(
+				'user_id' => $user_id,
+				'sensor_collab_name' => $sensor_collab_name,
+				'sensor_collab_desc' => $sensor_collab_desc,
+				'sensor_x_id' => $sensor_x_id,
+				'sensor_y_id' => $sensor_y_id,
+				'operator' => $operator,
+				);
+
+			$this->Dashboard_model->createNewCollab($newSensorData);
+			$this->session->set_flashdata('successmessage', 'Sensor / data point successfully created!');
+			redirect('home');
+
+
+		}
+	}
+
 	public function viewsensor($sensorid = NULL)
 	{
 		if(isset($sensorid))
@@ -101,6 +142,31 @@ class Home extends CI_Controller {
 		$this->load->view('menu',$data);
 		$this->load->view('analyze',$data);
 		$this->load->view('footer');
+	}
+
+	public function createAlertForm($sensorid = NULL)
+	{
+		$data['userdata'] = $this->getUserData();
+		$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
+		$this->load->view('header');
+		$this->load->view('menu', $data);
+		$this->load->view('new_alert', $data);
+		$this->load->view('footer');
+	}
+
+	public function submitNewAlert()
+	{
+		$sensor_id = $this->input->post('sensor_id');
+		$rule_type = $this->input->post('alert_type');
+		$value = $this->input->post('value');
+
+		$newAlertData = array(
+			'sensor_id' => $sensor_id,
+			'rule_type' => $rule_type,
+			'rule_value' => $value
+			);
+		$this->Dashboard_model->insertNewAlert($newAlertData);
+		redirect('viewsensor'."/".$sensor_id);
 	}
 
 }
