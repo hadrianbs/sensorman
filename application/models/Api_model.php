@@ -45,4 +45,33 @@ class Api_model extends CI_Model{
 		return $query->result();
 	}
 
+	public function checkSensorRule($ruledata, $sensor_reading)
+	{
+		foreach($ruledata as $rules)
+		{
+			if($rules->rule_type == 'high')
+			{
+				if($rules->rule_value > $sensor_reading)
+				{
+					return TRUE;
+				}
+				else
+				{
+					return FALSE;
+				}
+			}
+			elseif($rules->rule_type == 'low')
+			{
+				if($rules->rule_value < $sensor_reading)
+				{
+					return TRUE;
+				}
+				else
+				{
+					return FALSE;
+				}
+			}
+		}
+	}
+
 }
