@@ -58,15 +58,10 @@
                                                 </select>
                                                 <label for="form_control_1">Sensor Y</label>
                                             </div>
-                                            <div class="form-group form-md-line-input has-info">
-                                                <select class="form-control" id="form_control_1" name="operator" required>
-                                                    <option value=""></option>
-                                                    <option value="*">*</option>
-                                                    <option value="+">+</option>
-                                                    <option value="-">-</option>
-                                                    <option value="/">/</option>                                                    
-                                                </select>
-                                                <label for="form_control_1">Operator</label>
+                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                <input type="text" class="form-control" id="form_control_1" name="operator" required>
+                                                <label for="form_control_1">Math Expression</label>
+                                                <span class="help-block">Math expression, must contain x and y</span>
                                             </div>
                                         </div>
                                         <div class="form-actions noborder">

@@ -71,4 +71,25 @@ class Test extends CI_Controller {
 
 		}
 	}
+
+	public function math_test()
+	{
+		$this->load->model('Data_model');
+		$this->load->model('Api_model');
+		$collabData = $this->Api_model->checkCollab(1);
+		$x = $this->Data_model->getLastRecord($collabData[0]->sensor_x_id)[0]->datareading;
+		$y = $this->Data_model->getLastRecord($collabData[0]->sensor_y_id)[0]->datareading;
+		$op = $collabData[0]->operator;
+		$replace = array("x", "y");
+		$replaceWith = array($x, $y);
+		$mathEx = str_replace($replace, $replaceWith, $op);
+		echo $mathEx."    ";
+		echo eval('return '.$mathEx.';');
+	}
+
+	public function rule_test()
+	{
+		$this->load->model('Api_model');
+		var_dump($this->Api_model->checkCollabSensorRule(2, 21));
+	}
 }
