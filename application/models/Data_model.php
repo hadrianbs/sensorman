@@ -5,8 +5,18 @@ class Data_model extends CI_Model{
 	{
 		$this->db->select('sensor.id as SENSORID, sensor.sensor_name as SENSORNAME, sensor.sensor_description as SENSORDESC, sensor_data.timestamp as TIMESTAMP, sensor_data.sensor_reading as DATAREADING');
 		$this->db->from('sensor');
-		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id');
+		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id', 'left');
 		$this->db->where('sensor.id', $sensorid);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getCollabData($collabId)
+	{
+		$this->db->select('sensor_collab.sensor_collab_id as COLLABID, sensor_collab.sensor_collab_name as COLLABNAME, sensor_collab.sensor_collab_desc as COLLABDESC, sensor_collab_data.timestamp as TIMESTAMP, sensor_collab_data.sensor_reading as DATAREADING');
+		$this->db->from('sensor_collab');
+		$this->db->join('sensor_collab_data', 'sensor_collab_data.sensor_collab_id = sensor_collab.sensor_collab_id', 'left');
+		$this->db->where('sensor_collab.sensor_collab_id', $collabId);
 		$query = $this->db->get();
 		return $query->result();
 	}
