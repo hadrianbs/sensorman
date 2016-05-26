@@ -30,6 +30,7 @@ class Home extends CI_Controller {
 		#Get user Data
 		$data['userdata'] = $this->getUserData();
 		$data['sensorlist'] = $this->Dashboard_model->getSensorList();
+		$data['collablist'] = $this->Dashboard_model->getCollabList();
 
 		$this->load->view('header');
 		$this->load->view('menu', $data);

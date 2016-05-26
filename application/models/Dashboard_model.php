@@ -13,6 +13,13 @@ class Dashboard_model extends CI_Model{
 		return $query->result();
 	}
 
+	public function getCollabList()
+	{
+		$this->db->from('sensor_collab');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function createNewCollab($newSensorData)
 	{
 		$this->db->insert('sensor_collab', $newSensorData);

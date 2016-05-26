@@ -68,10 +68,30 @@
                 <div class="portlet light bordered">
                     <div class="portlet-title">
                         <div class="caption">
-                            <span class="caption-subject font-blue-soft bold uppercase">Sensor Info</span>
+                            <span class="caption-subject font-blue-soft bold uppercase">Collaborative Sensors</span>
                         </div>
                     </div>
                     <div class="portlet-body">
+                        <div class="row">
+                        <?php foreach($collablist as $collabs) { ?>
+                            <div class="col-md-3">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption font-green-sharp">
+                                            <span class=""> <?php echo $collabs->sensor_collab_name ?> </span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="scroller" style="height:100px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                                            <a href="<?php echo base_url('viewcollab')."/".$collabs->sensor_collab_id ?>">
+                                                <button type="button" class="btn blue">Go</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>    
+                        </div>
                     </div>
                 </div>
                 <!-- END Portlet PORTLET-->
