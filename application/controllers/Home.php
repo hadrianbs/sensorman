@@ -132,6 +132,19 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function viewcollab($collabId = NULL)
+	{
+		if(isset($collabId))
+		{
+			$data['userdata'] = $this->getUserData();
+			$data['collabdata'] = $this->Data_model->getCollabData($collabId);
+			$this->load->view('header');
+			$this->load->view('menu',$data);
+			$this->load->view('view_collab',$data);
+			$this->load->view('footer');
+		}
+	}
+
 	public function analyzeSensor($sensorid = NULL)
 	{
 		$data['userdata'] = $this->getUserData();

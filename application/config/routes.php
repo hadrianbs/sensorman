@@ -58,3 +58,4 @@ $route['create_sensor'] = 'home/create_sensor/submit';
 $route['viewsensor/(:any)'] = 'home/viewsensor/$1';
 $route['getRealtimeData/(:any)'] = 'data_controller/getRealTimeSensorData/$1';
 $route['analyze/(:any)'] = 'home/analyzeSensor/$1';
+$route['viewcollab/(:any)'] = 'home/viewcollab/$1';
