@@ -32,6 +32,16 @@ class Data_model extends CI_Model{
 		return $query->result();
 	}
 
+	public function getCollabReading($collabId)
+	{
+		$this->db->select('sensor_collab_data.sensor_reading as datareading, sensor_collab_data.timestamp as timestamp');
+		$this->db->from('sensor_collab_data');
+		$this->db->where('sensor_collab_data.sensor_collab_id', $collabId);
+		$this->db->order_by('sensor_collab_data.timestamp', 'ASC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	#Get Last Record of Data
 	public function getLastRecord($sensorId)
 	{
