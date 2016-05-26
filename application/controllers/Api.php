@@ -245,7 +245,73 @@ class Api extends CI_Controller {
 								);
 
 								#output data (for debug purpose)
-								echo "OR, DATA FROM X \n";
+								echo "3 SENSOR COLLAB, OR, DATA FROM X \n";
+								print_r($newCollabData);
+							}
+
+							#Incoming data from Y
+							elseif($collabs->sensor_y_id == $sensor_id[0]->SENSORID)
+							{
+								#Get the last record of X value
+								$sensor_x_value = $this->Data_model->getLastRecord($collabs->sensor_x_id);
+								#Get the last record of Z Value
+								$sensor_z_value = $this->Data_model->getLastRecord($collabs->sensor_z_id);
+
+								#CALCULATION BLOCK
+								$x = $sensor_x_value[0]->datareading;
+								$y = $sensor_reading;
+								$z = $sensor_z_value[0]->datareading;
+								$collabMathExpression = $collabs->operator;
+								$replace = array("x", "y", "z");
+								$replaceWith = array($x, $y, $z);
+								$mathExpressionEval = str_replace($replace, $replaceWith, $collabMathExpression);
+								$result = eval('return '.$mathExpressionEval.';');
+								#END OF CALCULATION BLOCK							
+
+								#Prepare the Data for insertion to DATABASE
+								$newCollabData = array(
+								'sensor_x_value' => $sensor_x_value[0]->datareading,
+								'sensor_y_value' => $sensor_reading,
+								'sensor_z_value' => $sensor_z_value[0]->datareading,
+								'sensor_collab_id' => $collabs->sensor_collab_id,
+								'sensor_reading' => $result
+								);
+
+								#output data (for debug purpose)
+								echo "3 SENSOR COLLAB, OR, DATA FROM Y \n";
+								print_r($newCollabData);
+							}
+
+							#incoming data from Z
+							elseif($collabs->sensor_z_id == $sensor_id[0]->SENSORID)
+							{
+								#Get the last record of X value
+								$sensor_x_value = $this->Data_model->getLastRecord($collabs->sensor_x_id);
+								#Get the last record of Y Value
+								$sensor_y_value = $this->Data_model->getLastRecord($collabs->sensor_y_id);
+
+								#CALCULATION BLOCK
+								$x = $sensor_x_value[0]->datareading;
+								$y = $sensor_reading[0]->datareading;
+								$z = $sensor_reading;
+								$collabMathExpression = $collabs->operator;
+								$replace = array("x", "y", "z");
+								$replaceWith = array($x, $y, $z);
+								$mathExpressionEval = str_replace($replace, $replaceWith, $collabMathExpression);
+								$result = eval('return '.$mathExpressionEval.';');
+								#END OF CALCULATION BLOCK							
+
+								#Prepare the Data for insertion to DATABASE
+								$newCollabData = array(
+								'sensor_x_value' => $sensor_x_value[0]->datareading,
+								'sensor_y_value' => $sensor_reading[0]->datareading
+								'sensor_z_value' => $sensor_reading,
+								'sensor_collab_id' => $collabs->sensor_collab_id,
+								'sensor_reading' => $result
+								);
+
+								#output data (for debug purpose)
+								echo "3 SENSOR COLLAB, OR, DATA FROM Y \n";
 								print_r($newCollabData);
 							}
 						}
