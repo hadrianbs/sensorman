@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2016 at 07:53 PM
+-- Generation Time: May 30, 2016 at 11:55 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -85,7 +85,8 @@ INSERT INTO `sensor` (`id`, `group_id`, `user_id`, `shared_with`, `sensor_key`, 
 (5, NULL, 2, NULL, 'ee456995048a0514c8d283fbca1a84c9093d7686', NULL, 'Room01 Temperature', 'for measuring and monitoring room01 temperature. Report said that the room is getting hotter every day. Sign of doomsday?', '2016-05-18 00:59:19', '2016-05-18 00:59:19', NULL),
 (6, NULL, 2, NULL, 'e1964c20ec6dcf74ceb271cdafc4dd4aa405a412', NULL, 'Room01 Humidity', 'Is my room humid? let''s find out!', '2016-05-18 01:13:14', '2016-05-18 01:13:14', NULL),
 (7, NULL, 2, NULL, 'c36d5fee9de91fae9405eb7965b21afdbaf9b52d', NULL, 'Refrigerator Temp', 'Why do i need to monitor my refrigerator temperature? kinda stupid..', '2016-05-18 01:15:20', '2016-05-18 01:15:20', NULL),
-(8, NULL, 2, NULL, 'a7759afbe54df675a75b811f9a6b11ad346e6854', NULL, 'Garden Soil Humidity 01', 'Detecting garden soil humidity.', '2016-05-26 13:41:35', '2016-05-26 13:41:35', NULL);
+(8, NULL, 2, NULL, 'a7759afbe54df675a75b811f9a6b11ad346e6854', NULL, 'Garden Soil Humidity 01', 'Detecting garden soil humidity.', '2016-05-26 13:41:35', '2016-05-26 13:41:35', NULL),
+(9, NULL, 3, NULL, 'f9da5f14bbd82e03d616ff3a7e5f717bb26133b6', NULL, 'Temperatur kamar kost', 'Mengukur temperatur kamar kost.', '2016-05-30 18:47:19', '2016-05-30 18:47:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -48315,16 +48316,18 @@ CREATE TABLE `users` (
   `last_login` int(11) UNSIGNED DEFAULT NULL,
   `active` tinyint(1) UNSIGNED DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
-  `last_name` varchar(50) DEFAULT NULL
+  `last_name` varchar(50) DEFAULT NULL,
+  `sensor_limit` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `api_key`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`) VALUES
-(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1268889823, 1, 'Admin', 'istrator'),
-(2, '::1', 'hadrianbsrg', '$2y$08$zevCjimkNuwkmn4IwRn7Deqfq3273/sbXzWbaazP5LH1lV2R7zLzq', NULL, '', 'bay@datangaja.com', NULL, NULL, NULL, NULL, 1460047354, 1464263754, 1, NULL, NULL);
+INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `api_key`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `sensor_limit`) VALUES
+(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1268889823, 1, 'Admin', 'istrator', NULL),
+(2, '::1', 'hadrianbsrg', '$2y$08$zevCjimkNuwkmn4IwRn7Deqfq3273/sbXzWbaazP5LH1lV2R7zLzq', NULL, '', 'bay@datangaja.com', NULL, NULL, NULL, NULL, 1460047354, 1464634212, 1, NULL, NULL, 10),
+(3, '::1', 'hadrianbs', '$2y$08$kq7J/AWgJHs5af3TsrJFxO3fiShK/GXLmbLgVs8Jzhq4SRf.4PIDO', NULL, '', 'hadrianbayanulhaq@gmail.com', NULL, NULL, NULL, NULL, 1464633997, 1464635819, 1, NULL, NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -48345,7 +48348,8 @@ CREATE TABLE `users_groups` (
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
-(3, 2, 2);
+(3, 2, 2),
+(4, 3, 2);
 
 --
 -- Indexes for dumped tables
@@ -48451,7 +48455,7 @@ ALTER TABLE `login_attempts`
 -- AUTO_INCREMENT for table `sensor`
 --
 ALTER TABLE `sensor`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `sensor_collab`
 --
@@ -48486,12 +48490,12 @@ ALTER TABLE `sensor_rule_status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
