@@ -22,18 +22,8 @@
                                     <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required/> </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="rem-password">
-                                        <p>Remember Me
-                                            <input type="checkbox" class="rem-checkbox" />
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8 text-right">
-                                    <div class="forgot-password">
-                                        <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
-                                    </div>
-                                    <button class="btn blue" type="submit">Sign In</button>
+                                <div class="col-sm-12 text-right">
+                                    <button class="btn blue" type="submit">Sign In</button>                                 
                                 </div>
                             </div>
                         </form>
