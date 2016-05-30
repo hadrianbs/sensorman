@@ -186,17 +186,21 @@ class Home extends CI_Controller {
 	public function viewUserProfile()
 	{
 		#get user profile
+
 		$data['userdata'] = $this->getUserData();
-		#get user sensors
-		$data['userSensorList'] = $this->Dashboard_model->getSensorList($this->getUserData()->id);
-		#get user collabs
-		$data['userCollabList'] = $this->Dashboard_model->getCollabList($this->getUserData()->id);
 		#view how many sensor left to cap
 		$data['sensorNumber'] = $this->Dashboard_model->countDatabaseResult('sensor', $this->getUserData()->id);
+		$data['collabNumber'] = $this->Dashboard_model->countDatabaseResult('sensor_collab', $this->getUserData()->id);
  		#view how many sensor data the user's have.
  		$data['totalSensorData'] = $this->Dashboard_model->countSensorData($this->getUserData()->id);
+ 		
+ 		$this->load->view('header');
+ 		$this->load->view('menu', $data);
+ 		$this->load->view('profile', $data);
+ 		$this->load->view('footer');
+ 		
 
- 		print_r($data);
+ 		
 	}
 
 }
