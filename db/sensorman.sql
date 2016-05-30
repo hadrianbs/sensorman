@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 21, 2016 at 09:01 PM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Host: 127.0.0.1
+-- Generation Time: May 30, 2016 at 07:53 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -84,7 +84,8 @@ INSERT INTO `sensor` (`id`, `group_id`, `user_id`, `shared_with`, `sensor_key`, 
 (4, NULL, 2, NULL, '6e034a993b83dda8500a9eeaa10eee9611903399', NULL, 'Aquarium pH', 'for measuring aquarium pH, who knows right?', '2016-05-18 00:58:21', '2016-05-18 00:58:21', NULL),
 (5, NULL, 2, NULL, 'ee456995048a0514c8d283fbca1a84c9093d7686', NULL, 'Room01 Temperature', 'for measuring and monitoring room01 temperature. Report said that the room is getting hotter every day. Sign of doomsday?', '2016-05-18 00:59:19', '2016-05-18 00:59:19', NULL),
 (6, NULL, 2, NULL, 'e1964c20ec6dcf74ceb271cdafc4dd4aa405a412', NULL, 'Room01 Humidity', 'Is my room humid? let''s find out!', '2016-05-18 01:13:14', '2016-05-18 01:13:14', NULL),
-(7, NULL, 2, NULL, 'c36d5fee9de91fae9405eb7965b21afdbaf9b52d', NULL, 'Refrigerator Temp', 'Why do i need to monitor my refrigerator temperature? kinda stupid..', '2016-05-18 01:15:20', '2016-05-18 01:15:20', NULL);
+(7, NULL, 2, NULL, 'c36d5fee9de91fae9405eb7965b21afdbaf9b52d', NULL, 'Refrigerator Temp', 'Why do i need to monitor my refrigerator temperature? kinda stupid..', '2016-05-18 01:15:20', '2016-05-18 01:15:20', NULL),
+(8, NULL, 2, NULL, 'a7759afbe54df675a75b811f9a6b11ad346e6854', NULL, 'Garden Soil Humidity 01', 'Detecting garden soil humidity.', '2016-05-26 13:41:35', '2016-05-26 13:41:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -102,6 +103,7 @@ CREATE TABLE `sensor_collab` (
   `sensor_z_id` int(11) UNSIGNED DEFAULT NULL,
   `sensor_x_rule_id` int(11) UNSIGNED DEFAULT NULL,
   `sensor_y_rule_id` int(11) UNSIGNED DEFAULT NULL,
+  `sensor_z_rule_id` int(11) UNSIGNED DEFAULT NULL,
   `comp_operator` varchar(16) DEFAULT NULL,
   `operator` varchar(11) NOT NULL,
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -112,9 +114,9 @@ CREATE TABLE `sensor_collab` (
 -- Dumping data for table `sensor_collab`
 --
 
-INSERT INTO `sensor_collab` (`sensor_collab_id`, `user_id`, `sensor_collab_name`, `sensor_collab_desc`, `sensor_x_id`, `sensor_y_id`, `sensor_z_id`, `sensor_x_rule_id`, `sensor_y_rule_id`, `comp_operator`, `operator`, `created_on`, `status`) VALUES
-(2, 2, 'Testing Collab', 'TESTING', 1, 2, NULL, 1, NULL, 'OR', '*', '2016-04-25 20:05:29', NULL),
-(3, 2, 'TEST ANd', 'TESTING AND', 1, 2, NULL, NULL, NULL, 'AND', '+', '2016-04-27 18:13:03', NULL);
+INSERT INTO `sensor_collab` (`sensor_collab_id`, `user_id`, `sensor_collab_name`, `sensor_collab_desc`, `sensor_x_id`, `sensor_y_id`, `sensor_z_id`, `sensor_x_rule_id`, `sensor_y_rule_id`, `sensor_z_rule_id`, `comp_operator`, `operator`, `created_on`, `status`) VALUES
+(2, 2, 'Testing Collab', 'TESTING', 1, 2, NULL, 1, 2, NULL, 'OR', '(x*y)/2', '2016-04-25 20:05:29', NULL),
+(3, 2, 'TEST AND', 'TESTING AND', 1, 2, NULL, 1, 2, NULL, 'AND', 'x/y', '2016-04-27 18:13:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -48231,7 +48233,18 @@ INSERT INTO `sensor_data` (`id`, `sensor_id`, `sensor_reading`, `timestamp`) VAL
 (23882, 1, 26.2415, '2016-05-18 02:24:05'),
 (23883, 1, 26.2415, '2016-05-18 02:24:05'),
 (23884, 1, 26.2415, '2016-05-18 02:24:05'),
-(23885, 1, 26.2415, '2016-05-18 02:24:05');
+(23885, 1, 26.2415, '2016-05-18 02:24:05'),
+(23886, 1, 26.2415, '2016-05-23 08:34:25'),
+(23887, 1, 26.2415, '2016-05-23 08:34:59'),
+(23888, 1, 26.2415, '2016-05-23 08:53:03'),
+(23889, 1, 26.2415, '2016-05-23 08:56:55'),
+(23890, 1, 26.2415, '2016-05-23 08:59:01'),
+(23891, 1, 26.2415, '2016-05-23 08:59:44'),
+(23892, 1, 26.2415, '2016-05-23 09:01:00'),
+(23893, 1, 26.2415, '2016-05-23 09:19:34'),
+(23894, 1, 26.2415, '2016-05-23 09:22:06'),
+(23895, 1, 26.2415, '2016-05-23 09:23:00'),
+(23896, 1, 26.2415, '2016-05-23 09:23:43');
 
 -- --------------------------------------------------------
 
@@ -48311,7 +48324,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `api_key`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`) VALUES
 (1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1268889823, 1, 'Admin', 'istrator'),
-(2, '::1', 'hadrianbsrg', '$2y$08$zevCjimkNuwkmn4IwRn7Deqfq3273/sbXzWbaazP5LH1lV2R7zLzq', NULL, '', 'bay@datangaja.com', NULL, NULL, NULL, NULL, 1460047354, 1463533042, 1, NULL, NULL);
+(2, '::1', 'hadrianbsrg', '$2y$08$zevCjimkNuwkmn4IwRn7Deqfq3273/sbXzWbaazP5LH1lV2R7zLzq', NULL, '', 'bay@datangaja.com', NULL, NULL, NULL, NULL, 1460047354, 1464263754, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -48438,7 +48451,7 @@ ALTER TABLE `login_attempts`
 -- AUTO_INCREMENT for table `sensor`
 --
 ALTER TABLE `sensor`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `sensor_collab`
 --
@@ -48453,7 +48466,7 @@ ALTER TABLE `sensor_collab_data`
 -- AUTO_INCREMENT for table `sensor_data`
 --
 ALTER TABLE `sensor_data`
-  MODIFY `id` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23886;
+  MODIFY `id` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23897;
 --
 -- AUTO_INCREMENT for table `sensor_group`
 --
