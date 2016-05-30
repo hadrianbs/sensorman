@@ -6,16 +6,18 @@ class Dashboard_model extends CI_Model{
 		$this->db->insert('sensor', $newSensorData);
 	}
 
-	public function getSensorList()
+	public function getSensorList($userId)
 	{
 		$this->db->from('sensor');
+		$this->db->where('sensor.user_id', $userId);
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	public function getCollabList()
+	public function getCollabList($userId)
 	{
 		$this->db->from('sensor_collab');
+		$this->db->where('sensor_collab.user_id', $userId);
 		$query = $this->db->get();
 		return $query->result();
 	}

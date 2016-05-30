@@ -29,8 +29,8 @@ class Home extends CI_Controller {
 
 		#Get user Data
 		$data['userdata'] = $this->getUserData();
-		$data['sensorlist'] = $this->Dashboard_model->getSensorList();
-		$data['collablist'] = $this->Dashboard_model->getCollabList();
+		$data['sensorlist'] = $this->Dashboard_model->getSensorList($this->getUserData()->id);
+		$data['collablist'] = $this->Dashboard_model->getCollabList($this->getUserData()->id);
 
 		$this->load->view('header');
 		$this->load->view('menu', $data);
@@ -181,6 +181,18 @@ class Home extends CI_Controller {
 			);
 		$this->Dashboard_model->insertNewAlert($newAlertData);
 		redirect('viewsensor'."/".$sensor_id);
+	}
+
+	public function viewUserProfile()
+	{
+		#get user profile
+		$data['userdata'] = $this->getUserData();
+		#get user sensors
+		$data['userSensorList'] = $this->Dashboard_model->getSensorList($this->getUserData()->id);
+		#get user collabs
+		$data['userCollabList'] = $this->Dashboard_model->getCollabList($this->getUserData()->id);
+		#view how many sensor left to cap
+		#view how many sensor data the user's have.
 	}
 
 }
