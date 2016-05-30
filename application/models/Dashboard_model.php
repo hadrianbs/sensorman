@@ -31,4 +31,19 @@ class Dashboard_model extends CI_Model{
 	{
 		$this->db->insert('sensor_rule', $newAlertData);
 	}
+
+	public function countDatabaseResult($table, $userId)
+	{
+		$this->db->from($table);
+		$this->db->where($table.'.'.'user_id', $userId);
+		return $this->db->count_all_results();
+	}
+
+	public function countSensorData($userId)
+	{
+		$this->db->from('sensor');
+		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id', 'left');
+		$this->db->where('sensor.user_id', $userId);
+		return $this->db->count_all_results();
+	}
 }

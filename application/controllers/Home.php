@@ -192,7 +192,11 @@ class Home extends CI_Controller {
 		#get user collabs
 		$data['userCollabList'] = $this->Dashboard_model->getCollabList($this->getUserData()->id);
 		#view how many sensor left to cap
-		#view how many sensor data the user's have.
+		$data['sensorNumber'] = $this->Dashboard_model->countDatabaseResult('sensor', $this->getUserData()->id);
+ 		#view how many sensor data the user's have.
+ 		$data['totalSensorData'] = $this->Dashboard_model->countSensorData($this->getUserData()->id);
+
+ 		print_r($data);
 	}
 
 }
