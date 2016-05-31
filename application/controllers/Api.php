@@ -52,7 +52,7 @@ class Api extends CI_Controller {
 					);
 
 			#Insert sensor data reading to 'sensor_data' table
-			#$this->Api_model->insertSensorReadingData($sensorReadingData);
+			$this->Api_model->insertSensorReadingData($sensorReadingData);
 
 			#Check if this sensor is registered to a collaboration.
 			if($collab_data = $this->Api_model->checkCollab($sensor_id[0]->SENSORID))
@@ -93,6 +93,8 @@ class Api extends CI_Controller {
 								#output data (for debug purpose)
 								echo "OR, DATA FROM X \n";
 								print_r($newCollabData);
+								$this->Api_model->insertCollabData($newCollabData);
+
 							}
 							# INCOMING DATA FROM Y
 							elseif($collabs->sensor_y_id == $sensor_id[0]->SENSORID)
@@ -120,6 +122,7 @@ class Api extends CI_Controller {
 
 								echo "OR, DATA FROM Y\n";
 								print_r($newCollabData);
+								$this->Api_model->insertCollabData($newCollabData);
 							}					
 						}
 						elseif($collabs->comp_operator == 'AND')
@@ -155,10 +158,11 @@ class Api extends CI_Controller {
 										'sensor_collab_id' => $collabs->sensor_collab_id,
 										'sensor_reading' => $result
 										);
-									echo "AND, Y SATISFIED". "\n";
 
+									echo "AND, Y SATISFIED". "\n";
 									#Insert to database
 									print_r($newCollabData);
+									$this->Api_model->insertCollabData($newCollabData);
 								}
 								else
 								{
@@ -195,10 +199,11 @@ class Api extends CI_Controller {
 										'sensor_collab_id' => $collabs->sensor_collab_id,
 										'sensor_reading' => $result
 										);
-									echo "AND, X SATISFIED". "\n";
 
+									echo "AND, X SATISFIED". "\n";
 									#insert to database
 									print_r($newCollabData);
+									$this->Api_model->insertCollabData($newCollabData);
 								}
 								else
 								{
@@ -247,6 +252,7 @@ class Api extends CI_Controller {
 								#output data (for debug purpose)
 								echo "3 SENSOR COLLAB, OR, DATA FROM X \n";
 								print_r($newCollabData);
+								$this->Api_model->insertCollabData($newCollabData);
 							}
 
 							#Incoming data from Y
@@ -280,6 +286,7 @@ class Api extends CI_Controller {
 								#output data (for debug purpose)
 								echo "3 SENSOR COLLAB, OR, DATA FROM Y \n";
 								print_r($newCollabData);
+								$this->Api_model->insertCollabData($newCollabData);
 							}
 
 							#incoming data from Z
@@ -313,6 +320,7 @@ class Api extends CI_Controller {
 								#output data (for debug purpose)
 								echo "3 SENSOR COLLAB, OR, DATA FROM Y \n";
 								print_r($newCollabData);
+								$this->Api_model->insertCollabData($newCollabData);
 							}
 						}
 						elseif($collabs->comp_operator == 'AND')
@@ -360,6 +368,7 @@ class Api extends CI_Controller {
 
 										#Insert to database
 										print_r($newCollabData);
+										$this->Api_model->insertCollabData($newCollabData);
 									}
 									else
 									{
@@ -415,6 +424,7 @@ class Api extends CI_Controller {
 
 										#Insert to database
 										print_r($newCollabData);
+										$this->Api_model->insertCollabData($newCollabData);
 									}
 									else
 									{
@@ -469,6 +479,7 @@ class Api extends CI_Controller {
 
 										#Insert to database
 										print_r($newCollabData);
+										$this->Api_model->insertCollabData($newCollabData);
 									}
 									else
 									{

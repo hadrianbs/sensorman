@@ -38,6 +38,11 @@ class Api_model extends CI_Model{
 		$this->db->insert('sensor_data', $sensorReadingData);
 	}
 
+	public function insertCollabData($collabData)
+	{
+		$this->db->insert('sensor_collab_data', $collabData);
+	}
+
 	public function getSensorAlertData($sensorId)
 	{
 		$this->db->from('sensor_rule');

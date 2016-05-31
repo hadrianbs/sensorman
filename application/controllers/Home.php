@@ -85,7 +85,7 @@ class Home extends CI_Controller {
 		{
 			if($param == 'form')
 			{
-				$data['sensor_list'] = $this->Dashboard_model->getSensorList();
+				$data['sensor_list'] = $this->Dashboard_model->getSensorList($this->getUserData()->id);
 				$this->load->view('header');
 				$this->load->view('menu', $data);
 				$this->load->view('new_collab_form');
