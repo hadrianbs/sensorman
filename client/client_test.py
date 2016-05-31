@@ -10,7 +10,7 @@ def sendSensorData():
 
 
 	sensor_key = '11059b0216dbfa53bc990bf9cc721e7913bdeb37'
-	sensor_reading = random.uniform(20, 27)
+	sensor_reading = random.uniform(20, 57)
 
 
 	data = 	{
@@ -18,7 +18,7 @@ def sendSensorData():
 		'sensor_reading': sensor_reading
 	}
 
-	req = urllib2.Request('http://localhost/sensorman/api/retrieve_data')
+	req = urllib2.Request('http://192.168.1.150/api/retrieve_data')
 	req.add_header('Content-Type', 'application/json')
 	response = urllib2.urlopen(req, json.dumps(data))
 	print json.dumps(data)
