@@ -92,4 +92,9 @@ class Test extends CI_Controller {
 		$this->load->model('Api_model');
 		var_dump($this->Api_model->checkCollabSensorRule(2, 21));
 	}
+
+	public function load_test()
+	{
+		print_r(sys_getloadavg());
+	}
 }
