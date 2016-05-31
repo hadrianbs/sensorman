@@ -27,18 +27,6 @@
                                 </div>
                             </div>
                         </form>
-                        <!-- BEGIN FORGOT PASSWORD FORM -->
-                        <form class="forget-form" action="javascript:;" method="post">
-                            <h3 class="font-green">Forgot Password ?</h3>
-                            <p> Enter your e-mail address below to reset your password. </p>
-                            <div class="form-group">
-                                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
-                            <div class="form-actions">
-                                <button type="button" id="back-btn" class="btn grey btn-default">Back</button>
-                                <button type="submit" class="btn blue btn-success uppercase pull-right">Submit</button>
-                            </div>
-                        </form>
-                        <!-- END FORGOT PASSWORD FORM -->
                     </div>
                     <div class="login-footer">
                         <div class="row bs-reset">
