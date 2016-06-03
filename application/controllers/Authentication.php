@@ -5,8 +5,15 @@ class Authentication extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('auth/header');
-		$this->load->view('auth/login');
+		if($this->ion_auth->logged_in())
+		{
+			redirect('home');
+		}
+		else
+		{
+			$this->load->view('auth/header');
+			$this->load->view('auth/login');
+		}		
 	}
 
 	public function register()
