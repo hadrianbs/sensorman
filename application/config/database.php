@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sensorman.cjlvltrjyyu6.ap-southeast-1.rds.amazonaws.com:3306',
+	'hostname' => 'sensorman.cjlvltrjyyu6.ap-southeast-1.rds.amazonaws.com',
 	'username' => 'sensormanuser',
 	'password' => 'sensorman12345',
 	'database' => 'sensorman',
