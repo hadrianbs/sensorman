@@ -148,7 +148,8 @@ $(function () {
                                     <div class="scroller" style="height:200px">
                                         <pr>
                                             Name : <?php echo $sensordata[0]->SENSORNAME ?> <br>
-                                            Description : <?php echo $sensordata[0]->SENSORDESC ?>
+                                            Description : <?php echo $sensordata[0]->SENSORDESC ?> <br>
+                                            SensorKey : <?php echo $sensordata[0]->SENSORKEY ?>
                                         </pr>
                                     </div>
                                 </div>

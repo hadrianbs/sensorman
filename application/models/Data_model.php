@@ -3,7 +3,7 @@ class Data_model extends CI_Model{
 
 	public function getSensorData($sensorid)
 	{
-		$this->db->select('sensor.id as SENSORID, sensor.sensor_name as SENSORNAME, sensor.sensor_description as SENSORDESC, sensor_data.timestamp as TIMESTAMP, sensor_data.sensor_reading as DATAREADING');
+		$this->db->select('sensor.id as SENSORID, sensor.sensor_name as SENSORNAME, sensor.sensor_description as SENSORDESC, sensor.sensor_key as SENSORKEY, sensor_data.timestamp as TIMESTAMP, sensor_data.sensor_reading as DATAREADING');
 		$this->db->from('sensor');
 		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id', 'left');
 		$this->db->where('sensor.id', $sensorid);
