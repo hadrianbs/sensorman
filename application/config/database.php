@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sensorman.cjlvltrjyyu6.ap-southeast-1.rds.amazonaws.com',
-	'username' => 'sensormanuser',
-	'password' => 'sensorman12345',
+	'hostname' => 'sensorman-db-lb.cloudapp.net',
+	'username' => 'haproxyuser',
+	'password' => 'haproxy12345',
 	'database' => 'sensorman',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
