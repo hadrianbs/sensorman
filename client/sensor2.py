@@ -9,8 +9,8 @@ import random
 def sendSensorData():
 
 
-	sensor_key = '16f715e480d1ae011c03eb5908dbce9870d346a1'
-	sensor_reading = random.uniform(13, 37)
+	sensor_key = '3b623224a84a1dd88de344037e17c20ddfb72725'
+	sensor_reading = random.uniform(20, 37)
 
 
 	data = 	{

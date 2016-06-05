@@ -1,0 +1,1 @@
+siege -c50 -t60S -H 'Content-Type: application/json' 'http://bayanulhaq.me/api/retrieve_data POST {"sensor_key": "3b623224a84a1dd88de344037e17c20ddfb72725", "sensor_reading": 34.34503453 }'
