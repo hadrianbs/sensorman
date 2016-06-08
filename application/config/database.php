@@ -75,10 +75,18 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	/*
 	'hostname' => 'sensorman-db-lb.cloudapp.net',
 	'username' => 'haproxyuser',
 	'password' => 'haproxy12345',
 	'database' => 'sensorman',
+	*/
+
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'sensorman',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
