@@ -111,6 +111,9 @@ class Home extends CI_Controller {
 					$sensor_collab_desc = $this->input->post('description');
 					$sensor_x_id = $this->input->post('sensor_x');
 					$sensor_y_id = $this->input->post('sensor_y');
+					$sensor_x_rule = $this->input->post('sensor_x_rule');
+					$sensor_y_rule = $this->input->post('sensor_y_rule');
+					$comparator = $this->input->post('comparator');
 					$operator = $this->input->post('operator');
 
 					$newSensorData = array(
@@ -119,7 +122,10 @@ class Home extends CI_Controller {
 						'sensor_collab_desc' => $sensor_collab_desc,
 						'sensor_x_id' => $sensor_x_id,
 						'sensor_y_id' => $sensor_y_id,
-						'operator' => $operator,
+						'sensor_x_rule_id' => $sensor_x_rule,
+						'sensor_y_rule_id' => $sensor_y_rule,
+						'comp_operator' => $comparator,
+						'operator' => $operator
 						);
 
 					$this->Dashboard_model->createNewCollab($newSensorData);
@@ -155,9 +161,9 @@ class Home extends CI_Controller {
 						);
 
 					print_r($newCollabData);
-					#$this->Dashboard_model->createNewCollab($newCollabData);
-					#$this->session->set_flashdata('successmessage', 'Collab data point successfully created!');
-					#redirect('home');
+					$this->Dashboard_model->createNewCollab($newCollabData);
+					$this->session->set_flashdata('successmessage', 'Collab data point successfully created!');
+					redirect('home');
 				}
 			}
 		}
