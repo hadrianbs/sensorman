@@ -101,66 +101,65 @@ class Home extends CI_Controller {
 				$this->load->view('new_three_collab_form');
 				$this->load->view('footer');
 			}
-		}
-		else
-		{
-			if($param == 'submit2')
+		
+			else
 			{
-				$user_id = $this->getUserData()->id;
-				$sensor_collab_name = $this->input->post('name');
-				$sensor_collab_desc = $this->input->post('description');
-				$sensor_x_id = $this->input->post('sensor_x');
-				$sensor_y_id = $this->input->post('sensor_y');
-				$operator = $this->input->post('operator');
+				if($param == 'submit2')
+				{
+					$user_id = $this->getUserData()->id;
+					$sensor_collab_name = $this->input->post('name');
+					$sensor_collab_desc = $this->input->post('description');
+					$sensor_x_id = $this->input->post('sensor_x');
+					$sensor_y_id = $this->input->post('sensor_y');
+					$operator = $this->input->post('operator');
 
-				$newSensorData = array(
-					'user_id' => $user_id,
-					'sensor_collab_name' => $sensor_collab_name,
-					'sensor_collab_desc' => $sensor_collab_desc,
-					'sensor_x_id' => $sensor_x_id,
-					'sensor_y_id' => $sensor_y_id,
-					'operator' => $operator,
-					);
+					$newSensorData = array(
+						'user_id' => $user_id,
+						'sensor_collab_name' => $sensor_collab_name,
+						'sensor_collab_desc' => $sensor_collab_desc,
+						'sensor_x_id' => $sensor_x_id,
+						'sensor_y_id' => $sensor_y_id,
+						'operator' => $operator,
+						);
 
-				$this->Dashboard_model->createNewCollab($newSensorData);
-				$this->session->set_flashdata('successmessage', 'Sensor / data point successfully created!');
-				redirect('home');
+					$this->Dashboard_model->createNewCollab($newSensorData);
+					$this->session->set_flashdata('successmessage', 'Sensor / data point successfully created!');
+					redirect('home');
+				}
+				if($param == 'submit3')
+				{
+					$user_id = $this->getUserData()->id;
+					$sensor_collab_name = $this->input->post('name');
+					$sensor_collab_desc = $this->input->post('description');
+					$sensor_x_id = $this->input->post('sensor_x');
+					$sensor_y_id = $this->input->post('sensor_y');
+					$sensor_z_id = $this->input->post('sensor_z');
+					$sensor_x_rule = $this->input->post('sensor_x_rule');
+					$sensor_y_rule = $this->input->post('sensor_y_rule');
+					$sensor_z_rule = $this->input->post('sensor_z_rule');
+					$comparator = $this->input->post('comparator');
+					$operator = $this->input->post('operator');
+
+					$newCollabData = array(
+						'user_id' => $user_id,
+						'sensor_collab_name' => $sensor_collab_name,
+						'sensor_collab_desc' => $sensor_collab_desc,
+						'sensor_x_id' => $sensor_x_id,
+						'sensor_y_id' => $sensor_y_id,
+						'sensor_z_id' => $sensor_z_id,
+						'sensor_x_rule_id' => $sensor_x_rule,
+						'sensor_y_rule_id' => $sensor_y_rule,
+						'sensor_x_rule_id' => $sensor_x_rule,
+						'comp_operator' => $comparator,
+						'operator' => $operator
+						);
+
+					print_r($newCollabData);
+					#$this->Dashboard_model->createNewCollab($newCollabData);
+					#$this->session->set_flashdata('successmessage', 'Collab data point successfully created!');
+					#redirect('home');
+				}
 			}
-			if($param == 'submit3')
-			{
-				$user_id = $this->getUserData()->id;
-				$sensor_collab_name = $this->input->post('name');
-				$sensor_collab_desc = $this->input->post('description');
-				$sensor_x_id = $this->input->post('sensor_x');
-				$sensor_y_id = $this->input->post('sensor_y');
-				$sensor_z_id = $this->input->post('sensor_z');
-				$sensor_x_rule = $this->input->post('sensor_x_rule');
-				$sensor_y_rule = $this->input->post('sensor_y_rule');
-				$sensor_z_rule = $this->input->post('sensor_z_rule');
-				$comparator = $this->input->post('comparator');
-				$operator = $this->input->post('operator');
-
-				$newCollabData = array(
-					'user_id' => $user_id,
-					'sensor_collab_name' => $sensor_collab_name,
-					'sensor_collab_desc' => $sensor_collab_desc,
-					'sensor_x_id' => $sensor_x_id,
-					'sensor_y_id' => $sensor_y_id,
-					'sensor_z_id' => $sensor_z_id,
-					'sensor_x_rule_id' => $sensor_x_rule,
-					'sensor_y_rule_id' => $sensor_y_rule,
-					'sensor_x_rule_id' => $sensor_x_rule,
-					'comp_operator' => $comparator,
-					'operator' => $operator
-					);
-
-				print_r($newCollabData);
-				#$this->Dashboard_model->createNewCollab($newCollabData);
-				#$this->session->set_flashdata('successmessage', 'Collab data point successfully created!');
-				#redirect('home');
-			}
-
-
 		}
 	}
 
