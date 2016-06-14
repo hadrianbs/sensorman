@@ -42,11 +42,11 @@
                                             </div> 
                                             <div class="md-checkbox-inline">
                                                 <div class="md-checkbox">
-                                                    <input type="checkbox" id="checkbox6" class="md-check" value="gps" name="gps">
+                                                    <input type="checkbox" id="checkbox6" class="md-check" value="pub" name="sensor_status">
                                                     <label for="checkbox6">
                                                         <span></span>
                                                         <span class="check"></span>
-                                                        <span class="box"></span> This is a GPS </label>
+                                                        <span class="box"></span> Make Public </label>
                                                 </div>
                                             </div>
                                         </div>

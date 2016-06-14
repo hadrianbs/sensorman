@@ -62,3 +62,4 @@ $route['getRealTimeCollabData/(:any)'] = 'data_controller/getRealTimeCollabData/
 $route['analyze/(:any)'] = 'home/analyzeSensor/$1';
 $route['viewcollab/(:any)'] = 'home/viewcollab/$1';
 $route['profile'] = 'home/viewUserProfile';
+$route['public-sensors'] = 'home/viewPublicSensors';

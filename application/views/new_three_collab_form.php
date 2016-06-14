@@ -123,7 +123,7 @@
     $('#sensor_x').change(function(){
         var state_id = $('#sensor_x').val();
         if (state_id != ""){
-            var post_url = "/sensorman/data_controller/getsensorrules/" + state_id;
+            var post_url = '<?php echo base_url('/data_controller/getsensorrules')."/" ?>' + state_id;
             $.ajax({
                 type: "POST",
                  url: post_url,
@@ -152,7 +152,7 @@
     $('#sensor_y').change(function(){
         var state_id = $('#sensor_y').val();
         if (state_id != ""){
-            var post_url = "/sensorman/data_controller/getsensorrules/" + state_id;
+            var post_url = '<?php echo base_url('/data_controller/getsensorrules')."/" ?>' + state_id;
             $.ajax({
                 type: "POST",
                  url: post_url,
@@ -181,7 +181,7 @@
     $('#sensor_z').change(function(){
         var state_id = $('#sensor_z').val();
         if (state_id != ""){
-            var post_url = "/sensorman/data_controller/getsensorrules/" + state_id;
+            var post_url = '<?php echo base_url('/data_controller/getsensorrules')."/" ?>' + state_id;
             $.ajax({
                 type: "POST",
                  url: post_url,

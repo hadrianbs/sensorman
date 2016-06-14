@@ -40,16 +40,6 @@
             <!-- BEGIN PAGE TOP -->
             <div class="page-top">
                 <!-- BEGIN HEADER SEARCH BOX -->
-                <form class="search-form" action="page_general_search_2.html" method="GET">
-                    <div class="input-group">
-                        <input type="text" class="form-control input-sm" placeholder="Search..." name="query">
-                        <span class="input-group-btn">
-                            <a href="javascript:;" class="btn submit">
-                                <i class="icon-magnifier"></i>
-                            </a>
-                        </span>
-                    </div>
-                </form>
                 <!-- END HEADER SEARCH BOX -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 <div class="top-menu">
@@ -99,6 +89,18 @@
                         <a href="<?php echo base_url('home') ?>" class="nav-link">
                             <i class="icon-home"></i>
                             <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="<?php echo base_url('public-sensors') ?>" class="nav-link">
+                            <i class="icon-globe"></i>
+                            <span class="title">Public Sensors</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="<?php echo base_url('#') ?>" class="nav-link">
+                            <i class="icon-docs"></i>
+                            <span class="title">Documentations</span>
                         </a>
                     </li>
                 </ul>
