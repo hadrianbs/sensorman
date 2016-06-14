@@ -46,4 +46,12 @@ class Dashboard_model extends CI_Model{
 		$this->db->where('sensor.user_id', $userId);
 		return $this->db->count_all_results();
 	}
+
+	public function getPublicSensorList()
+	{
+		$this->db->from('sensor');
+		$this->db->where('sensor.status','pub');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }

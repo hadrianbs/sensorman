@@ -194,7 +194,7 @@ $(function () {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <!-- BEGIN Portlet PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
@@ -216,6 +216,37 @@ $(function () {
                                                 <tr>
                                                     <td> <?php echo $row->TIMESTAMP ?> </td>
                                                     <td> <?php echo $row->DATAREADING ?> </td>
+                                                </tr>
+                                                <?php } ?>                                    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- BEGIN Portlet PORTLET-->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- BEGIN Portlet PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject font-blue-soft bold uppercase">Rule List</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <table class="table table-striped table-bordered table-hover" id="alldata_datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th> Type </th>
+                                                    <th> Value </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($sensor_rules as $row) { ?>
+                                                <tr>
+                                                    <td> <?php echo $row->rule_type ?> </td>
+                                                    <td> <?php echo $row->rule_value ?> </td>
                                                 </tr>
                                                 <?php } ?>                                    
                                             </tbody>

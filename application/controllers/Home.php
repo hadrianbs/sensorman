@@ -59,12 +59,14 @@ class Home extends CI_Controller {
 				$sensor_name = $this->input->post('name');
 				$sensor_description = $this->input->post('description');
 				$sensor_key = sha1($sensor_name + time() + $user_id);
+				$sensor_status = $this->input->post('sensor_status');
 
 				$newSensorData = array(
 					'user_id' => $user_id,
 					'sensor_key' => $sensor_key,
 					'sensor_name' => $sensor_name,
 					'sensor_description' => $sensor_description,
+					'status' => $sensor_status
 					);
 
 				$this->Dashboard_model->createNewSensor($newSensorData);
@@ -169,6 +171,20 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function viewPublicSensors()
+	{
+		$this->checkLogin();
+		$this->session->set_userdata('referred_from', current_url());
+		#Get user Data
+		$data['userdata'] = $this->getUserData();
+		$data['sensorlist'] = $this->Dashboard_model->getPublicSensorList();
+
+		$this->load->view('header');
+		$this->load->view('menu', $data);
+		$this->load->view('public_sensors', $data);
+		$this->load->view('footer');
+	}
+
 	public function viewsensor($sensorid = NULL)
 	{
 		$this->checkLogin();
@@ -177,6 +193,7 @@ class Home extends CI_Controller {
 			#Get sensor data
 			$data['userdata'] = $this->getUserData();
 			$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
+			$data['sensor_rules'] = $this->Data_model->getAllSensorRules($sensorid);
 			$this->load->view('header');
 			$this->load->view('menu',$data);
 			$this->load->view('view_sensor',$data);
