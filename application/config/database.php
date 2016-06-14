@@ -77,19 +77,19 @@ $db['default'] = array(
 	'dsn'	=> '',
 	
 	//Prod
-	/*
+	
 	'hostname' => 'sensorman-db-lb.cloudapp.net',
 	'username' => 'haproxyuser',
 	'password' => 'haproxy12345',
 	'database' => 'sensorman',	
-	*/
+
 	//Dev
-	
+	/*
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'sensorman',
-	
+	*/
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
