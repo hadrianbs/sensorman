@@ -75,6 +75,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+	
+	//Prod
 	/*
 	'hostname' => 'sensorman-db-lb.cloudapp.net',
 	'username' => 'haproxyuser',
@@ -82,6 +84,7 @@ $db['default'] = array(
 	'database' => 'sensorman',
 	*/
 
+	//Dev
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',

@@ -93,6 +93,13 @@ class Data_controller extends CI_Controller {
 		echo json_encode($data, JSON_NUMERIC_CHECK);
 	}
 
+	public function getSensorRules($sensorId)
+	{
+		$rules = $this->Data_model->getSensorRulesById($sensorId);
+		$this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($rules));
+	}
 }
 
 ?>
