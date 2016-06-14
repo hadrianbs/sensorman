@@ -1,4 +1,3 @@
-
 <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
@@ -30,7 +29,7 @@
                             <!-- BEGIN SAMPLE FORM PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-body form">
-                                    <form role="form" action="<?php echo base_url('home/create_collab/submit2') ?>" method="POST">
+                                    <form role="form" action="<?php echo base_url('home/create_collab/submit3') ?>" method="POST">
                                         <div class="form-body">
                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                 <input type="text" class="form-control" id="form_control_1" name="name" required>
@@ -41,6 +40,7 @@
                                                 <textarea class="form-control" rows="3" name="description"></textarea>
                                                 <label for="form_control_1">Data point description</label>
                                             </div>
+
                                             <div class="form-group form-md-line-input has-info">
                                                 <select class="form-control" id="sensor_x" name="sensor_x" required>
                                                     <option value=""></option>
@@ -56,7 +56,6 @@
                                                 </select>
                                                 <label for="sensor_x_rule">Sensor X Rule</label>
                                             </div>
-
 
                                             <div class="form-group form-md-line-input has-info">
                                                 <select class="form-control" id="sensor_y" name="sensor_y" required>
@@ -74,10 +73,34 @@
                                                 <label for="sensor_y_rule">Sensor Y Rule</label>
                                             </div>
 
+                                            <div class="form-group form-md-line-input has-info">
+                                                <select class="form-control" id="sensor_z" name="sensor_z" required>
+                                                    <option value=""></option>
+                                                    <?php foreach ($sensor_list as $row) { ?>
+                                                    <option value="<?php echo $row->id ?>"><?php echo $row->sensor_name ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <label for="sensor_z">Sensor Z</label>
+                                            </div>
+                                            <div class="form-group form-md-line-input has-info" id="sensor_z_rule_label">
+                                                <select class="form-control" id="sensor_z_rule" name="sensor_z_rule" id="sensor_z_rule_label" required>
+                                                    <option value=""></option>
+                                                </select>
+                                                <label for="sensor_z_rule">Sensor Z Rule</label>
+                                            </div>
+
+                                            <div class="form-group form-md-line-input has-info" id="comparator">
+                                                <select class="form-control" id="comparator" name="comparator" id="comparator" required>
+                                                    <option value="AND">AND</option>
+                                                    <option value="AND">OR</option>
+                                                </select>
+                                                <label for="comparator">Comparator (AND / OR)</label>
+                                            </div>
+
                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                 <input type="text" class="form-control" id="form_control_1" name="operator" required>
                                                 <label for="form_control_1">Math Expression</label>
-                                                <span class="help-block">Math expression, must contain x and y</span>
+                                                <span class="help-block">Math expression, must contain x,y and z</span>
                                             </div>
                                         </div>
                                         <div class="form-actions noborder">
@@ -149,6 +172,35 @@
         } else {
             $('#sensor_y_rule').empty();
             $('#sensor_y_rule, #sensor_y_rule_label').hide();
+        }//end if
+    }); //end change 
+</script>
+
+<script type="text/javascript">
+    $('#sensor_z_rule, #sensor_z_rule_label').hide();
+    $('#sensor_z').change(function(){
+        var state_id = $('#sensor_z').val();
+        if (state_id != ""){
+            var post_url = "/sensorman/data_controller/getsensorrules/" + state_id;
+            $.ajax({
+                type: "POST",
+                 url: post_url,
+                 success: function(cities) //we're calling the response json array 'cities'
+                  {
+                    $('#sensor_z_rule').empty();
+                    $('#sensor_z_rule, #sensor_z_rule_label').show();
+                       $.each(cities,function(id,city) 
+                       {
+                        var opt = $('<option />'); // here we're creating a new select option for each group
+                          opt.val(id);
+                          opt.text(city);
+                          $('#sensor_z_rule').append(opt); 
+                    });
+                   } //end success
+             }); //end AJAX
+        } else {
+            $('#sensor_z_rule').empty();
+            $('#sensor_z_rule, #sensor_z_rule_label').hide();
         }//end if
     }); //end change 
 </script>

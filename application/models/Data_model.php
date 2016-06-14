@@ -87,4 +87,25 @@ class Data_model extends CI_Model{
 		$query = $this->db->get();
 		return $query->result();	
 	}
+
+	public function getSensorRulesById($sensorId)
+	{
+		$this->db->select('rule_id, sensor_id, rule_type');
+		$this->db->from('sensor_rule');
+		$this->db->where('sensor_id', $sensorId);
+		$query = $this->db->get();
+		$rules = array();
+
+		if($query->result())
+		{
+			foreach ($query->result() as $rule) {
+				$rules[$rule->rule_id] = $rule->rule_type;
+			}
+			return $rules;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 }

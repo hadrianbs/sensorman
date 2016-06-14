@@ -26,8 +26,12 @@
                                 <i class="icon-docs"></i> Data Point / Sensor </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('new_collab')?>">
-                                <i class="icon-share"></i>  Collaborative Sensor </a>
+                            <a href="<?php echo base_url('new_collab2')?>">
+                                <i class="icon-share"></i>  2 Collaborative Sensor </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('new_collab3')?>">
+                                <i class="icon-share"></i>  3 Collaborative Sensor </a>
                         </li>
                     </ul>
                 </div>
