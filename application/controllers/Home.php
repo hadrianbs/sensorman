@@ -157,7 +157,7 @@ class Home extends CI_Controller {
 						'sensor_z_id' => $sensor_z_id,
 						'sensor_x_rule_id' => $sensor_x_rule,
 						'sensor_y_rule_id' => $sensor_y_rule,
-						'sensor_x_rule_id' => $sensor_x_rule,
+						'sensor_z_rule_id' => $sensor_x_rule,
 						'comp_operator' => $comparator,
 						'operator' => $operator
 						);

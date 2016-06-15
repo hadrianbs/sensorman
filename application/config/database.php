@@ -84,12 +84,12 @@ $db['default'] = array(
 	'database' => 'sensorman',	
 
 	//Dev
-	/*
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sensorman',
-	*/
+	
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'sensorman',
+	
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

@@ -84,7 +84,7 @@
                                     <div class="scroller" style="height:200px">
                                         <pr>
                                             Name : <?php echo $collabdata[0]->COLLABNAME ?> <br>
-                                            Description : <?php echo $collabdata[0]->COLLABDESC ?>
+                                            Description : <?php echo $collabdata[0]->COLLABDESC ?> <br>
                                         </pr>
                                     </div>
                                 </div>
