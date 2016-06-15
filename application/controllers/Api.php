@@ -372,12 +372,12 @@ class Api extends CI_Controller {
 									}
 									else
 									{
-										echo "Z not Satisfied\n";
+										echo "Source X | Z not Satisfied\n";
 									}
 								}
 								else
 								{
-									echo "Y Not Satisfied\n";
+									echo "Surce X | Y Not Satisfied\n";
 								}
 							}
 
@@ -428,12 +428,14 @@ class Api extends CI_Controller {
 									}
 									else
 									{
-										echo "Z not Satisfied\n";
+										echo "Source Y | Z not Satisfied\n";
+										print_r($sensor_z_value);
+										print_r($sensorCollabRuleId_z);
 									}
 								}
 								else
 								{
-									echo "X Not Satisfied\n";
+									echo "Source Y | X Not Satisfied\n";
 								}
 							}
 							#INCOMING DATA FROM Z
@@ -483,12 +485,12 @@ class Api extends CI_Controller {
 									}
 									else
 									{
-										echo "Y not Satisfied\n";
+										echo "Source Z | Y not Satisfied\n";
 									}
 								}
 								else
 								{
-									echo "X Not Satisfied\n";
+									echo "Source Z | X Not Satisfied\n";
 								}
 							}
 						}
