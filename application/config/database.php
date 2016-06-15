@@ -78,7 +78,7 @@ $db['default'] = array(
 	
 	//Prod
 	
-	'hostname' => 'sensorman-db-lb.cloudapp.net',
+	'hostname' => '52.163.90.54',
 	'username' => 'haproxyuser',
 	'password' => 'haproxy12345',
 	'database' => 'sensorman',	
