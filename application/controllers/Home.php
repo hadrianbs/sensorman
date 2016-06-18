@@ -217,6 +217,7 @@ class Home extends CI_Controller {
 
 	public function analyzeCollab($collabId = NULL)
 	{
+		$this->checkLogin();
 		$data['userdata'] = $this->getUserData();
 		$data['collabdata'] = $this->Data_model->getCollabData($collabId);
 		$data['maxcollabdata'] = $this->Data_model->getMaxCollabReading($collabId);
@@ -230,6 +231,7 @@ class Home extends CI_Controller {
 
 	public function analyzeSensor($sensorid = NULL)
 	{
+		$this->checkLogin();
 		$data['userdata'] = $this->getUserData();
 		$data['sensordata'] = $this->Data_model->getSensorData($sensorid); //charts
 		$data['maxsensordata'] = $this->Data_model->getMaxSensorReading($sensorid);
@@ -243,6 +245,7 @@ class Home extends CI_Controller {
 
 	public function createAlertForm($sensorid = NULL)
 	{
+		$this->checkLogin();
 		$data['userdata'] = $this->getUserData();
 		$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
 		$this->load->view('header');
@@ -253,6 +256,7 @@ class Home extends CI_Controller {
 
 	public function submitNewAlert()
 	{
+		$this->checkLogin();
 		$sensor_id = $this->input->post('sensor_id');
 		$rule_type = $this->input->post('alert_type');
 		$value = $this->input->post('value');
@@ -268,6 +272,7 @@ class Home extends CI_Controller {
 
 	public function viewUserProfile()
 	{
+		$this->checkLogin();
 		#get user profile
 
 		$data['userdata'] = $this->getUserData();
@@ -280,10 +285,17 @@ class Home extends CI_Controller {
  		$this->load->view('header');
  		$this->load->view('menu', $data);
  		$this->load->view('profile', $data);
- 		$this->load->view('footer');
- 		
+ 		$this->load->view('footer'); 		
+	}
 
- 		
+	public function viewDocumentation()
+	{
+		$this->checkLogin();
+		$data['userdata'] = $this->getUserData();
+		$this->load->view('header');
+ 		$this->load->view('menu', $data);
+ 		$this->load->view('documentation');
+ 		$this->load->view('footer'); 
 	}
 
 }
