@@ -63,3 +63,14 @@ $route['analyze/(:any)'] = 'home/analyzeSensor/$1';
 $route['viewcollab/(:any)'] = 'home/viewcollab/$1';
 $route['profile'] = 'home/viewUserProfile';
 $route['public-sensors'] = 'home/viewPublicSensors';
+$route['create-alert/(:num)'] = 'home/createAlertForm/$1';
+$route['send-data'] = 'api/retrieve_data';
+ 
+#routes for json api
+
+$route['json/sensor/all/(:any)'] = 'data_controller/getallsensordata/$1';
+$route['json/sensor/max/(:any)'] = 'data_controller/getMaxSensorReading/$1';
+$route['json/sensor/min/(:any)'] = 'data_controller/getMinSensorReading/$1';
+$route['json/sensor/average/(:any)'] = 'data_controller/getAverageSensorReading/$1'; 
+
+$route['json/collab/(:any)/(:any)'] = 'data_controller/getCollabCharts/$2/$1';

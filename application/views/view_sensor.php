@@ -169,7 +169,7 @@ $(function () {
                                         <pr>
                                             <a href="<?php echo base_url('analyze')."/".$sensordata[0]->SENSORID ?>">Analyze</a>
                                             <br>
-                                            <a href="<?php echo base_url('home/createAlertForm')."/".$sensordata[0]->SENSORID ?>">Create Alert</a>  
+                                            <a href="<?php echo base_url('create-alert')."/".$sensordata[0]->SENSORID ?>">Create Alert</a>  
                                         </pr>
                                     </div>
                                 </div>
