@@ -215,10 +215,23 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function analyzeCollab($collabId = NULL)
+	{
+		$data['userdata'] = $this->getUserData();
+		$data['collabdata'] = $this->Data_model->getCollabData($collabId);
+		$data['maxcollabdata'] = $this->Data_model->getMaxCollabReading($collabId);
+		$data['mincollabdata'] = $this->Data_model->getMinCollabReading($collabId);
+		$data['averagecollabdata'] = $this->Data_model->getAverageCollabReading($collabId);
+		$this->load->view('header');
+		$this->load->view('menu',$data);
+		$this->load->view('analyze_collab', $data);
+		$this->load->view('footer');
+	}
+
 	public function analyzeSensor($sensorid = NULL)
 	{
 		$data['userdata'] = $this->getUserData();
-		$data['sensordata'] = $this->Data_model->getSensorData($sensorid);
+		$data['sensordata'] = $this->Data_model->getSensorData($sensorid); //charts
 		$data['maxsensordata'] = $this->Data_model->getMaxSensorReading($sensorid);
 		$data['minsensordata'] = $this->Data_model->getMinSensorReading($sensorid);
 		$data['averagesensordata'] = $this->Data_model->getAverageSensorReading($sensorid);

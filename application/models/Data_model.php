@@ -7,16 +7,19 @@ class Data_model extends CI_Model{
 		$this->db->from('sensor');
 		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id', 'left');
 		$this->db->where('sensor.id', $sensorid);
+		$this->db->limit(500);
 		$query = $this->db->get();
 		return $query->result();
 	}
 
+	//all collab data for data tables.
 	public function getCollabData($collabId)
 	{
 		$this->db->select('sensor_collab.sensor_collab_id as COLLABID, sensor_collab.sensor_collab_name as COLLABNAME, sensor_collab.sensor_collab_desc as COLLABDESC, sensor_collab_data.timestamp as TIMESTAMP, sensor_collab_data.sensor_reading as DATAREADING');
 		$this->db->from('sensor_collab');
 		$this->db->join('sensor_collab_data', 'sensor_collab_data.sensor_collab_id = sensor_collab.sensor_collab_id', 'left');
 		$this->db->where('sensor_collab.sensor_collab_id', $collabId);
+		$this->db->limit(1000);
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -32,6 +35,7 @@ class Data_model extends CI_Model{
 		return $query->result();
 	}
 
+	//all collab data for charts / real time.
 	public function getCollabReading($collabId)
 	{
 		$this->db->select('sensor_collab_data.sensor_reading as datareading, sensor_collab_data.timestamp as timestamp');
@@ -86,6 +90,39 @@ class Data_model extends CI_Model{
 		$this->db->order_by('DATE(sensor_data.timestamp)', 'DESC');
 		$query = $this->db->get();
 		return $query->result();	
+	}
+
+	public function getMaxCollabReading($sensorid)
+	{
+		$this->db->select('MAX(sensor_collab_data.sensor_reading) as sensordata, DATE(sensor_collab_data.timestamp) as sensordate');
+		$this->db->from('sensor_collab_data');
+		$this->db->where('sensor_collab_data.sensor_collab_id', $sensorid);
+		$this->db->group_by('DATE(sensor_collab_data.timestamp)');
+		$this->db->order_by('DATE(sensor_collab_data.timestamp)', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getMinCollabReading($sensorid)
+	{
+		$this->db->select('MIN(sensor_collab_data.sensor_reading) as sensordata, DATE(sensor_collab_data.timestamp) as sensordate');
+		$this->db->from('sensor_collab_data');
+		$this->db->where('sensor_collab_data.sensor_collab_id', $sensorid);
+		$this->db->group_by('DATE(sensor_collab_data.timestamp)');
+		$this->db->order_by('DATE(sensor_collab_data.timestamp)', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function getAverageCollabReading($sensorid)
+	{
+		$this->db->select('AVG(sensor_collab_data.sensor_reading) as sensordata, DATE(sensor_collab_data.timestamp) as sensordate');
+		$this->db->from('sensor_collab_data');
+		$this->db->where('sensor_collab_data.sensor_collab_id', $sensorid);
+		$this->db->group_by('DATE(sensor_collab_data.timestamp)');
+		$this->db->order_by('DATE(sensor_collab_data.timestamp)', 'DESC');
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 	public function getSensorRulesById($sensorId)
