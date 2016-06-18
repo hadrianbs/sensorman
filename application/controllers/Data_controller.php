@@ -58,7 +58,9 @@ class Data_controller extends CI_Controller {
 			$data[] = [$datetime, $datareading];
 		}
 		
-		echo json_encode($data, JSON_NUMERIC_CHECK);
+		$this->output
+	        ->set_content_type('application/json')
+	        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 	}
 
 	public function getMinSensorReading($sensor_id)
@@ -71,7 +73,9 @@ class Data_controller extends CI_Controller {
 			$data[] = [$datetime, $datareading];
 		}
 		
-		echo json_encode($data, JSON_NUMERIC_CHECK);
+		$this->output
+	        ->set_content_type('application/json')
+	        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 	}
 
 	public function getAverageSensorReading($sensor_id)
@@ -84,7 +88,9 @@ class Data_controller extends CI_Controller {
 			$data[] = [$datetime, $datareading];
 		}
 		
-		echo json_encode($data, JSON_NUMERIC_CHECK);
+		$this->output
+	        ->set_content_type('application/json')
+	        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 	}
 
 	public function getSensorRules($sensorId)
@@ -121,7 +127,9 @@ class Data_controller extends CI_Controller {
 				$data[] = [$datetime, $datareading];
 			}
 			
-			echo json_encode($data, JSON_NUMERIC_CHECK);
+			$this->output
+		        ->set_content_type('application/json')
+		        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 		}
 		else if ($chartType == 'min')
 		{
@@ -133,7 +141,9 @@ class Data_controller extends CI_Controller {
 				$data[] = [$datetime, $datareading];
 			}
 			
-			echo json_encode($data, JSON_NUMERIC_CHECK);
+			$this->output
+		        ->set_content_type('application/json')
+		        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 		}
 		else if ($chartType == 'average')
 		{
@@ -145,7 +155,9 @@ class Data_controller extends CI_Controller {
 				$data[] = [$datetime, $datareading];
 			}
 			
-			echo json_encode($data, JSON_NUMERIC_CHECK);
+			$this->output
+		        ->set_content_type('application/json')
+		        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
 		}
 		else
 		{

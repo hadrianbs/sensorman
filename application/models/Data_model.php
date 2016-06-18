@@ -116,7 +116,7 @@ class Data_model extends CI_Model{
 
 	public function getAverageCollabReading($sensorid)
 	{
-		$this->db->select('AVG(sensor_collab_data.sensor_reading) as sensordata, DATE(sensor_collab_data.timestamp) as sensordate');
+		$this->db->select('MIN(sensor_collab_data.sensor_reading) as sensordata, DATE(sensor_collab_data.timestamp) as sensordate');
 		$this->db->from('sensor_collab_data');
 		$this->db->where('sensor_collab_data.sensor_collab_id', $sensorid);
 		$this->db->group_by('DATE(sensor_collab_data.timestamp)');
