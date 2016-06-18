@@ -98,7 +98,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="<?php echo base_url('#') ?>" class="nav-link">
+                        <a href="http://sensorman.readthedocs.io/" class="nav-link">
                             <i class="icon-docs"></i>
                             <span class="title">Documentations</span>
                         </a>
