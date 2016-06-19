@@ -74,6 +74,14 @@
                                                 <label for="sensor_y_rule">Sensor Y Rule</label>
                                             </div>
 
+                                            <div class="form-group form-md-line-input has-info" id="comp_operator_label">
+                                                <select class="form-control" id="comp_operator" name="comp_operator" id="comp_operator_label" required>
+                                                    <option value="AND">AND</option>
+                                                    <option value="OR">OR</option>
+                                                </select>
+                                                <label for="comp_operator">Compartaion Operator</label>
+                                            </div>
+
                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                 <input type="text" class="form-control" id="form_control_1" name="operator" required>
                                                 <label for="form_control_1">Math Expression</label>

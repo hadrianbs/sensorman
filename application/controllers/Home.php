@@ -115,7 +115,7 @@ class Home extends CI_Controller {
 					$sensor_y_id = $this->input->post('sensor_y');
 					$sensor_x_rule = $this->input->post('sensor_x_rule');
 					$sensor_y_rule = $this->input->post('sensor_y_rule');
-					$comparator = $this->input->post('comparator');
+					$comparator = $this->input->post('comp_operator');
 					$operator = $this->input->post('operator');
 
 					$newSensorData = array(
