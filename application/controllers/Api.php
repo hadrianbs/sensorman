@@ -36,8 +36,6 @@ class Api extends CI_Controller {
 
 	function retrieve_data()
 	{
-		if(isset($raw_data))
-		{
 			$raw_data = $this->input->raw_input_stream;
 			$json_data = json_decode($raw_data);
 
@@ -503,17 +501,7 @@ class Api extends CI_Controller {
 				}
 				print_r($sensorReadingData); #Print for Debugging
 				$this->return_message('Successfully retrieved sensor_reading data');
-			}
-			else
-			{
-				$data = array(
-				'message' => "invalid sensor_key. please recheck your sensor_key or register your sensor first"
-				);
 
-				$this->output
-			        ->set_content_type('application/json')
-			        ->set_output(json_encode($data));
-			}
 		}
 		else
 		{
