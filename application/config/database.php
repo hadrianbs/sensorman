@@ -80,7 +80,7 @@ $db['default'] = array(
 	
 	'hostname' => '52.163.90.54',
 	'username' => 'haproxyuser',
-	'password' => 'haproxy12345',
+	'password' => 'haproxyuser',
 	'database' => 'sensorman',	
 
 	//Dev
