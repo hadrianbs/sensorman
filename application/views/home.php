@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="portlet-body">
                                         <div class="scroller" style="height:100px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">                                                        
-                                            <a href="<?php echo base_url('viewsensor')."/".$row->id ?>">
+                                            <a href="<?php echo base_url('sensor/view')."/".$row->id ?>">
                                                 <button type="button" class="btn blue">Go</button>
                                             </a>
                                         </div>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="portlet-body">
                                         <div class="scroller" style="height:100px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-                                            <a href="<?php echo base_url('viewcollab')."/".$collabs->sensor_collab_id ?>">
+                                            <a href="<?php echo base_url('collab/view')."/".$collabs->sensor_collab_id ?>">
                                                 <button type="button" class="btn blue">Go</button>
                                             </a>
                                         </div>

@@ -102,7 +102,7 @@
                                 <div class="portlet-body">
                                     <div class="scroller" style="height:200px">
                                         <pr>
-                                            <a href="<?php echo base_url('home/analyzeCollab')."/".$collabdata[0]->COLLABID ?>">Analyze</a>
+                                            <a href="<?php echo base_url('analyze/collab')."/".$collabdata[0]->COLLABID ?>">Analyze</a>
                                             <br>
                                         </pr>
                                     </div>

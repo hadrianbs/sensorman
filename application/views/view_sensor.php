@@ -167,9 +167,9 @@ $(function () {
                                 <div class="portlet-body">
                                     <div class="scroller" style="height:200px">
                                         <pr>
-                                            <a href="<?php echo base_url('analyze')."/".$sensordata[0]->SENSORID ?>">Analyze</a>
+                                            <a href="<?php echo base_url('analyze/sensor')."/".$sensordata[0]->SENSORID ?>">Analyze</a>
                                             <br>
-                                            <a href="<?php echo base_url('create-alert')."/".$sensordata[0]->SENSORID ?>">Create Alert</a>  
+                                            <a href="<?php echo base_url('rule/create')."/".$sensordata[0]->SENSORID ?>">Create Rule</a>  
                                         </pr>
                                     </div>
                                 </div>

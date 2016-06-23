@@ -22,7 +22,7 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="<?php echo base_url('new_sensor')?>">
+                            <a href="<?php echo base_url('sensor/new')?>">
                                 <i class="icon-docs"></i> Data Point / Sensor </a>
                         </li>
                         <li>
