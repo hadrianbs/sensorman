@@ -52,18 +52,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['new_sensor'] = 'home/create_sensor/form';
+$route['sensor/new'] = 'home/create_sensor/form';
 $route['new_collab2'] = 'home/create_collab/form2';
 $route['new_collab3'] = 'home/create_collab/form3';
 $route['create_sensor'] = 'home/create_sensor/submit';
-$route['viewsensor/(:any)'] = 'home/viewsensor/$1';
+$route['sensor/view/(:any)'] = 'home/viewsensor/$1';
 $route['getRealtimeData/(:any)'] = 'data_controller/getRealTimeSensorData/$1';
 $route['getRealTimeCollabData/(:any)'] = 'data_controller/getRealTimeCollabData/$1';
-$route['analyze/(:any)'] = 'home/analyzeSensor/$1';
-$route['viewcollab/(:any)'] = 'home/viewcollab/$1';
+$route['analyze/sensor/(:any)'] = 'home/analyzeSensor/$1';
+$route['analyze/collab/(:any)'] = 'home/analyzeCollab/$1';
+$route['collab/view/(:any)'] = 'home/viewcollab/$1';
 $route['profile'] = 'home/viewUserProfile';
 $route['public-sensors'] = 'home/viewPublicSensors';
-$route['create-alert/(:num)'] = 'home/createAlertForm/$1';
+$route['rule/create/(:num)'] = 'home/createAlertForm/$1';
 $route['send-data'] = 'api/retrieve_data';
  
 #routes for json api
