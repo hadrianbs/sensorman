@@ -7,7 +7,7 @@ class Data_model extends CI_Model{
 		$this->db->from('sensor');
 		$this->db->join('sensor_data', 'sensor_data.sensor_id = sensor.id', 'left');
 		$this->db->where('sensor.id', $sensorid);
-		$this->db->limit(500);
+		// $this->db->limit(500);
 		$query = $this->db->get();
 		return $query->result();
 	}
