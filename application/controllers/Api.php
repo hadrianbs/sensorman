@@ -36,7 +36,7 @@ class Api extends CI_Controller {
 
 	function retrieve_data()
 	{
-		if(isset($raw_data))
+		if(!isset($raw_data))
 		{
 			// $raw_data = $this->input->raw_input_stream;
 			// $json_data = json_decode($raw_data);
