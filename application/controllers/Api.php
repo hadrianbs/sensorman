@@ -1,8 +1,6 @@
 	<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-#API Controller for RESTFUL Stuff.
-
 class Api extends CI_Controller {
 
 	function __construct()
