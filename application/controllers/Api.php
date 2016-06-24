@@ -1,8 +1,6 @@
 	<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-#API Controller for RESTFUL Stuff.
-
 class Api extends CI_Controller {
 
 	function __construct()
@@ -506,7 +504,17 @@ class Api extends CI_Controller {
 				}
 				print_r($sensorReadingData); #Print for Debugging
 				$this->return_message('Successfully retrieved sensor_reading data');
+			}
+			else
+			{
+				$data = array(
+				'message' => "invalid sensor_key. please recheck your sensor_key or register your sensor first"
+				);
 
+				$this->output
+			        ->set_content_type('application/json')
+			        ->set_output(json_encode($data));
+			}
 		}
 		else
 		{
