@@ -38,11 +38,14 @@ class Api extends CI_Controller {
 	{
 		if(isset($raw_data))
 		{
-			$raw_data = $this->input->raw_input_stream;
-			$json_data = json_decode($raw_data);
+			// $raw_data = $this->input->raw_input_stream;
+			// $json_data = json_decode($raw_data);
 
-			$sensor_key = $json_data->sensor_key;
-			$sensor_reading = $json_data->sensor_reading;
+			// $sensor_key = $json_data->sensor_key;
+			// $sensor_reading = $json_data->sensor_reading;
+
+			$sensor_key = $this->input->post('sensor_key');
+			$sensor_reading = $this->input->post('sensor_reading');
 
 			#Check 'sensor' database for sensor with equivalent 'sensor_key' . If Available, return the id of the sensor
 			if($sensor_id = $this->Api_model->checkSensorKey($sensor_key))
