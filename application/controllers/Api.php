@@ -34,11 +34,10 @@ class Api extends CI_Controller {
 
 	function retrieve_data()
 	{
+		$raw_data = $this->input->raw_input_stream;
 		if(isset($raw_data))
-		{
-			$raw_data = $this->input->raw_input_stream;
+		{			
 			$json_data = json_decode($raw_data);
-
 			$sensor_key = $json_data->sensor_key;
 			$sensor_reading = $json_data->sensor_reading;
 
@@ -518,12 +517,11 @@ class Api extends CI_Controller {
 		}
 		else
 		{
-			print_r($raw_data);
 			$message = "No data received. Check your device code";
 			$this->output
 			        ->set_content_type('application/json')
 			        ->set_output(json_encode($message));
 		}
-	}
+	}	
 
 }
