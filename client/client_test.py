@@ -10,7 +10,7 @@ def sendSensorData():
 
 
 	sensor_key = '9b34105dfe82611b628e750f9dea4663f7a3c8bb'
-	sensor_reading = random.uniform(23, 31)
+	sensor_reading = random.uniform(47, 58)
 
 
 	data = 	{
@@ -28,4 +28,4 @@ def sendSensorData():
 while(True):
 
 	sendSensorData()
-	time.sleep(2)	
+	time.sleep(1)	
