@@ -9,7 +9,7 @@ import random
 def sendSensorData():
 
 
-	sensor_key = '9b34105dfe82611b628e750f9dea4663f7a3c8bb'
+	sensor_key = 'e5e0fca9ca401a562067d4125b1fb588f0c5c0aa'
 	sensor_reading = random.uniform(47, 58)
 
 
