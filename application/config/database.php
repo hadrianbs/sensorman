@@ -78,17 +78,17 @@ $db['default'] = array(
 	
 	//Prod
 	
-	'hostname' => '52.163.90.54',
-	'username' => 'haproxyuser',
-	'password' => 'haproxy12345',
-	'database' => 'sensorman',	
+	// 'hostname' => '52.163.90.54',
+	// 'username' => 'haproxyuser',
+	// 'password' => 'haproxy12345',
+	// 'database' => 'sensorman',	
 
 	//Dev
 	
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'sensorman',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'sensorman',
 	
 
 	'dbdriver' => 'mysqli',

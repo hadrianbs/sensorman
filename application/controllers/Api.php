@@ -518,6 +518,7 @@ class Api extends CI_Controller {
 		}
 		else
 		{
+			print_r($raw_data);
 			$message = "No data received. Check your device code";
 			$this->output
 			        ->set_content_type('application/json')
