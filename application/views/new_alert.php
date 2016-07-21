@@ -39,8 +39,11 @@
                                             <div class="form-group form-md-line-input has-info">
                                                 <select class="form-control" id="form_control_1" name="alert_type" required>
                                                     <option value=""></option>
-                                                    <option value="high">High</option>
-                                                    <option value="low">Low</option>                                                  
+                                                    <option value="high"> > </option>
+                                                    <option value="low"> < </option>   
+                                                    <option value="high"> >= </option>
+                                                    <option value="low"> <= </option>                                                  
+                                                </select>                                               
                                                 </select>
                                                 <label for="form_control_1">Alert / rule type</label>
                                             </div>

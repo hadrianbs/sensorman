@@ -9,8 +9,8 @@ import random
 def sendSensorData():
 
 
-	sensor_key = '9b34105dfe82611b628e750f9dea4663f7a3c8bb'
-	sensor_reading = random.uniform(47, 58)
+	sensor_key = 'df000bc04cb16c65265ba52ede78028d2c451abb'
+	sensor_reading = random.uniform(27.00, 27.00)
 
 
 	data = 	{
@@ -18,7 +18,7 @@ def sendSensorData():
 		'sensor_reading': sensor_reading
 	}
 
-	req = urllib2.Request('http://sensorman.bayanulhaq.me/send-data')
+	req = urllib2.Request('http://localhost/sensorman/send-data')
 	req.add_header('Content-Type', 'application/json')
 	response = urllib2.urlopen(req, json.dumps(data))
 	print json.dumps(data)
