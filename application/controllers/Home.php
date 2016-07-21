@@ -267,7 +267,7 @@ class Home extends CI_Controller {
 			'rule_value' => $value
 			);
 		$this->Dashboard_model->insertNewAlert($newAlertData);
-		redirect('viewsensor'."/".$sensor_id);
+		redirect('sensor/view'."/".$sensor_id);
 	}
 
 	public function viewUserProfile()
